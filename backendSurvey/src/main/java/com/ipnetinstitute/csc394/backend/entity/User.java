@@ -9,45 +9,49 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name="users")
+@Data
 public class User extends BaseEntity {
 	String firstName;
 	String lastName;
 	String phone;
 	String eMail;
+	String password;
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	// public void setFirstName(String firstName) {
+	// 	this.firstName = firstName;
+	// }
 
-	public String getLastName() {
-		return lastName;
-	}
+	// public String getLastName() {
+	// 	return lastName;
+	// }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	// public void setLastName(String lastName) {
+	// 	this.lastName = lastName;
+	// }
 
-	public String getPhone() {
-		return phone;
-	}
+	// public String getPhone() {
+	// 	return phone;
+	// }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+	// public void setPhone(String phone) {
+	// 	this.phone = phone;
+	// }
 
-	public String geteMail() {
-		return eMail;
-	}
+	// public String geteMail() {
+	// 	return eMail;
+	// }
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
-	}
+	// public void seteMail(String eMail) {
+	// 	this.eMail = eMail;
+	// }
 	
 	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
 	private List<Student> student= new ArrayList<Student>();

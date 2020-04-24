@@ -43,6 +43,21 @@ public class QuestionController  {
     {
         return (List) questionRepo.listdesquestionparcategorie();
     }
+
+
+
+    @GetMapping("/getQuestionByCategory/{id}")
+    public List getQuestionByCategory(@PathVariable("id") Integer id){
+
+        List result = new ArrayList();
+        try {
+            result = (List)questionRepo.findAllQuestionbyCategory(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result;
+    }
+    }
     // @Autowired
     // EntityManagerFactory emf;
 
@@ -78,3 +93,4 @@ public class QuestionController  {
 	
 
 }
+ 
