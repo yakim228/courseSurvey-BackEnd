@@ -21,7 +21,9 @@ include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY, property = 
     @JsonSubTypes.Type(value = CatSurveyQuestion.class, name = "cat_survey_question"),
     @JsonSubTypes.Type(value = Classe.class, name = "classe"),
     @JsonSubTypes.Type(value = Course.class, name = "course"),
-    @JsonSubTypes.Type(value = Question.class, name = "question"),
+	@JsonSubTypes.Type(value = Question.class, name = "question"),
+	@JsonSubTypes.Type(value = Role.class, name = "role"),
+
     @JsonSubTypes.Type(value = StudentCourse.class, name = "student_course"),
     @JsonSubTypes.Type(value = Subject.class, name = "subject"),
     @JsonSubTypes.Type(value = Survey.class, name = "survey"),

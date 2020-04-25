@@ -1,4 +1,4 @@
-package com.ipnetinstitute.csc394.backend.security.jwt.services;
+package com.ipnetinstitute.csc394.backend.security.services;
 
 import com.ipnetinstitute.csc394.backend.dao.UserEntityRepository;
 import com.ipnetinstitute.csc394.backend.entity.User;
@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl  implements UserDetailsService{
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
+        User user = userRepository.findByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
         return UserDetailsImpl.build(user);

@@ -4,14 +4,20 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import com.ipnetinstitute.csc394.backend.entity.User;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 //@NoRepositoryBean
 @Transactional
 public interface UserEntityRepository extends BaseEntityRepository<User> {
 
 
-    Optional<User> findByUsername(String username);
+    Optional<User> findByUserName(String username);
 
-    Boolean existsByUsername(String username);
+    Boolean existsByUserName(String username);
+  
+    Boolean existsByEmail(String eMail);
+   
 
-    Boolean existsByEmail(String email);
+
+
 }

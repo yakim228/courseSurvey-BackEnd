@@ -143,7 +143,6 @@ public class BaseController implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		// TODO Auto-generated method stub
 		repos = new HashMap<String, BaseEntityRepository>();
 		repos.put("user", userRepo);
 		repos.put("teacher", teacherRepo);
