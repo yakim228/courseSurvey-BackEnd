@@ -14,10 +14,12 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter @Setter
 @AllArgsConstructor@NoArgsConstructor
 public class Survey extends BaseEntity{
 
@@ -28,6 +30,7 @@ public class Survey extends BaseEntity{
 	
 	Integer status;
 	
+
 	
 	@OneToMany(mappedBy = "survey" , cascade = {CascadeType.ALL})
 	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
@@ -37,7 +40,9 @@ public class Survey extends BaseEntity{
 	@JoinColumn(name="id_cat_survey", nullable = false)
 	private CatSurvey cat_survey;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_course", nullable = false)
+	private Course course;
 
 	// @OneToMany(mappedBy = "student", cascade = { CascadeType.ALL })
 	// private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();

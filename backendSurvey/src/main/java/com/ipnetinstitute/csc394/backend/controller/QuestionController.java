@@ -27,20 +27,20 @@ public class QuestionController  {
     @Autowired
     private QuestionEntityRepository questionRepo;
 
-    @Autowired
-    private CategorieSurveyQuestionEntityRepository cat_survey_questionRepo;
-    @Autowired
-    private CategorySurveyEntityRepository cat_surveyRepo;
+    // @Autowired
+    // private CategorieSurveyQuestionEntityRepository cat_survey_questionRepo;
+    // @Autowired
+    // private CategorySurveyEntityRepository cat_surveyRepo;
 
 
     // @Autowired
     // QuestionService queryservice;
 
-    @GetMapping("/questiontest")
-    public List<Question> getQuery()
-    {
-        return (List) questionRepo.listdesquestionparcategorie();
-    }
+    // @GetMapping("/questiontest")
+    // public List<Question> getQuery()
+    // {
+    //     // return (List) questionRepo.listdesquestionparcategorie();
+    // }
 
 
 

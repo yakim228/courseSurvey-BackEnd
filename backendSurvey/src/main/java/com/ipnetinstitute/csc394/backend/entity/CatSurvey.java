@@ -10,12 +10,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name= "cat_survey")
 @AllArgsConstructor@NoArgsConstructor
-@Data
+@Getter @Setter
 public class CatSurvey extends BaseEntity{
 	
 	String name;
