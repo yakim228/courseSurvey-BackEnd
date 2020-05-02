@@ -17,7 +17,7 @@ public class SignupRequest {
     private Set<String> role;
     
     @NotBlank
-    @Size(min = 6, max = 40)
+    // @Size(min = 6, max = 40)
     private String password;
 
     @NotBlank
@@ -30,8 +30,6 @@ public class SignupRequest {
     @NotBlank
     String phone;
 
-    @NotBlank
-    String eMail;
   
 
 
@@ -84,12 +82,12 @@ public class SignupRequest {
         this.phone = phone;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

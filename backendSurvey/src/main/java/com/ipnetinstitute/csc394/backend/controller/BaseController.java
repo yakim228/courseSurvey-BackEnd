@@ -46,8 +46,8 @@ public class BaseController implements InitializingBean {
 	@Autowired
 	private BaseEntityRepository<Classe> classeRepo;
 
-	@Autowired
-	private BaseEntityRepository<Role> roleRepo;
+	// @Autowired
+	// private BaseEntityRepository<Role> roleRepo;
 	
 	@Autowired
 	private BaseEntityRepository<Subject> subjectRepo;
@@ -103,6 +103,7 @@ public class BaseController implements InitializingBean {
 		try {
 			if(be.getId()==null) {
 				be.setCreateDateTime(new Date());
+				System.out.println(be.getCreateDateTime());
 				be.setModDateTime(new Date());
 			}else {
 				be.setModDateTime(new Date());
@@ -148,7 +149,7 @@ public class BaseController implements InitializingBean {
 		repos.put("teacher", teacherRepo);
 		repos.put("student", studentRepo);
 		// repos.put("question", questionRepo);
-		repos.put("role", roleRepo);
+		// repos.put("role", roleRepo);
 		repos.put("cat_survey", cat_surveyRepo);
 		repos.put("term", termRepo);
 		repos.put("classe", classeRepo);

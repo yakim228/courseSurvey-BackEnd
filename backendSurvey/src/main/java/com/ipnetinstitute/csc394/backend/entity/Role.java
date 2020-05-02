@@ -1,12 +1,6 @@
 package com.ipnetinstitute.csc394.backend.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 // import lombok.AllArgsConstructor;
 // import lombok.Data;
@@ -15,7 +9,10 @@ import javax.persistence.ManyToOne;
 @Entity
 
 
-public class Role extends BaseEntity {
+public class Role  {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
 	private ERole name;

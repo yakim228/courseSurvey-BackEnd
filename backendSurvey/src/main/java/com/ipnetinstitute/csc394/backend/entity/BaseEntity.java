@@ -1,6 +1,8 @@
 package com.ipnetinstitute.csc394.backend.entity;
 
-import java.util.Date; 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,8 +40,12 @@ public abstract  class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
+
+	@Column(nullable = true)
 	Date createDateTime;
+	@Column(nullable = true)
 	Date modDateTime;
+	@Column(nullable = true)
 	Integer modBy;
 	
 	@Transient

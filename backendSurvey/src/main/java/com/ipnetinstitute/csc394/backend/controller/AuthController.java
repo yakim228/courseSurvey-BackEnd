@@ -3,6 +3,7 @@ package com.ipnetinstitute.csc394.backend.controller;
 
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -83,7 +84,7 @@ public class AuthController {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
         }
 
-        if (userRepository.existsByEmail(signUpRequest.geteMail())) {
+        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
 
@@ -91,7 +92,7 @@ public class AuthController {
         User user = new User(signUpRequest
                 .getFirstName(),signUpRequest.getLastName(), 
                 signUpRequest.getUserName(),
-                signUpRequest.getPhone(),signUpRequest.geteMail(),
+                signUpRequest.getPhone(),signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
@@ -125,7 +126,18 @@ public class AuthController {
         }
 
         user.setRole(roles);
+        if(user.getId()==null) {
+				user.setCreateDateTime(new Date());
+				System.out.println(user.getCreateDateTime());
+                user.setModDateTime(new Date());
+                user.setModBy(2);
+                
+			}else {
+                user.setModDateTime(new Date());
+                user.setModBy(2);
+            }
         userRepository.save(user);
+
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
