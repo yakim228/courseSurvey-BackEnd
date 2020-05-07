@@ -2,11 +2,12 @@ package com.ipnetinstitute.csc394.backend;
 
 //package com.ipnetinstitute.csc394.backend;
 
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendSurveyApplication {
+public class BackendSurveyApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendSurveyApplication.class, args);
