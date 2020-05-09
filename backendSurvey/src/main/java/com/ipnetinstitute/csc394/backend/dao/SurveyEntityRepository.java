@@ -28,10 +28,10 @@ public interface SurveyEntityRepository extends BaseEntityRepository<Survey>  {
     List findbyCategoryAndCourse(@Param("CategoryID") Integer id_cat_survey , @Param("CourseID") Integer id_course);
 
     
-    @Query(value= "SELECT DISTINCT S.* FROM SURVEY S INNER JOIN CAT_SURVEY CS ON (S.ID_CAT_SURVEY = CS.ID)" + 
-            " INNER JOIN CAT_SURVEY_QUESTION CSQ ON (CSQ.ID_CAT_SURVEY= CS.ID) " +
-            "WHERE CSQ.ID_QUESTION NOT IN (SELECT SS.ID_QUESTION " +
-             "FROM STUDENT_SURVEY SS, STUDENT ST WHERE ST.ID = SS.ID_STUDENT AND  ST.ID_USER = :UserID);", nativeQuery = true)
+    @Query(value= "SELECT DISTINCT S.* FROM survey S INNER JOIN cat_survey CS ON (S.id_cat_survey = CS.id)" + 
+            " INNER JOIN cat_survey_question CSQ ON (CSQ.id_cat_survey= CS.id) " +
+            "WHERE CSQ.id_question NOT IN (SELECT SS.id_question " +
+             "FROM student_survey SS, student ST WHERE ST.id = SS.id_student AND  ST.id_user = :UserID);", nativeQuery = true)
     List pendingSurvey(@Param("UserID") Integer id_user);
 
 
