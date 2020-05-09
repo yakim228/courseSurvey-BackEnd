@@ -27,5 +27,15 @@ public interface SurveyEntityRepository extends BaseEntityRepository<Survey>  {
     @Query(value = "select * from survey sur where sur.id_cat_survey = :CategoryID and sur.id_course = :CourseID", nativeQuery = true)
     List findbyCategoryAndCourse(@Param("CategoryID") Integer id_cat_survey , @Param("CourseID") Integer id_course);
 
-		
+    
+    @Query(value= "SELECT DISTINCT S.* FROM SURVEY S INNER JOIN CAT_SURVEY CS ON (S.ID_CAT_SURVEY = CS.ID)" + 
+            " INNER JOIN CAT_SURVEY_QUESTION CSQ ON (CSQ.ID_CAT_SURVEY= CS.ID) " +
+            "WHERE CSQ.ID_QUESTION NOT IN (SELECT SS.ID_QUESTION " +
+             "FROM STUDENT_SURVEY SS, STUDENT ST WHERE ST.ID = SS.ID_STUDENT AND  ST.ID_USER = :UserID);", nativeQuery = true)
+    List pendingSurvey(@Param("UserID") Integer id_user);
+
+
+    
+
+
 }
