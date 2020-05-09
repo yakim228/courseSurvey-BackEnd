@@ -42,7 +42,7 @@ public class BaseController implements InitializingBean {
 
 
 	// private BaseEntityRepository<Course> courseRepo;
-
+// controller verifier
 	@Autowired
 	private BaseEntityRepository<Classe> classeRepo;
 
