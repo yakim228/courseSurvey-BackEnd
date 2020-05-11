@@ -59,4 +59,19 @@ public class SurveyController {
             return result;
         }
     }
+
+
+    @GetMapping("/getPendingSurvey/{userId}")
+    public List getPendingSurvey(@PathVariable("userId") Integer userId) {
+
+        List result = new ArrayList();
+        try {
+            result = (List) surveyRepo.pendingSurvey(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result;
+        }
+    }
+
 }

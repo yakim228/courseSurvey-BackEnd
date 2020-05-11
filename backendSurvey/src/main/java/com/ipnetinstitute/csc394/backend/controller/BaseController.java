@@ -42,7 +42,8 @@ public class BaseController implements InitializingBean {
 
 
 	// private BaseEntityRepository<Course> courseRepo;
-
+// controller verifier
+// deuxieme test
 	@Autowired
 	private BaseEntityRepository<Classe> classeRepo;
 

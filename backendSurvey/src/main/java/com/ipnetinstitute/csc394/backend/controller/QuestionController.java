@@ -56,38 +56,20 @@ public class QuestionController  {
             return result;
     }
     }
-    // @Autowired
-    // EntityManagerFactory emf;
+   
+    @GetMapping("/getPendingSurveyQuestions/{surveyId}/{userId}")
+    public List getPendingSurveyQuestions(@PathVariable("surveyId") Integer surveyId,
+            @PathVariable("userId") Integer userId) {
 
-
-    // @RequestMapping(value = "/questiontest", method = RequestMethod.GET)
-    // public List questionCategory() throws ClassNotFoundException {
-    //    EntityManager em = emf.createEntityManager();
-
-    // //    Query query = em.createQuery("select  q.title from  question q inner join cat_survey_question  csq on q.id =csq.id_question inner join cat_survey cs on csq.id_cat_survey = cs.id  where csq.id_cat_survey = 8 group by q.id");
-    //    Query query = em.createQuery("select title from question");
-    //     List result = new ArrayList();
-    //     try {
-    //         // result = (List)questionRepo.listQuestionfromACategory(id);
-    //         result = (List) query.getResultList();
-    //         em.close();
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     } finally {
-    //         return result;
-    //     }
-    // }
-    // public <T extends BaseEntity> Optional<T> getById(@PathVariable("id") Integer id) throws ClassNotFoundException {
-    //     Optional<T> result = null;
-    //     try {
-    //         result = (Optional<T>) repos.get(entity).findById(id);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     } finally {
-    //         return result;
-    //     }
-    // }
-	
+        List result = new ArrayList();
+        try {
+            result = (List) questionRepo.pendingSurveyQuestions(surveyId, userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result;
+        }
+    }
 	
 
 }
