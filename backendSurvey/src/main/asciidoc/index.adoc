@@ -1,0 +1,11 @@
+= Java Techie Spring REST Docs Example
+
+This is an example output for a service running at http://localhost:9091:
+
+== POST API Example
+
+.request
+include::{snippets}/save/users/http-request.adoc[]
+
+.response
+include::{snippets}/save/users/http-response.adoc[]

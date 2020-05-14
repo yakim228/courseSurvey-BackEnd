@@ -34,6 +34,12 @@ public class User extends BaseEntity {
 
 	// public User() {
 	// }
+        public User(String firstName, String lastName,String phone, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+		this.email = email;
+	}
 	public User(String firstName, String lastName, String userName, String phone, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
