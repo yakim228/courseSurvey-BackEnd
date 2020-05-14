@@ -56,9 +56,9 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 	}
         @Test
 	@Order(1)
-	public void saveTest() throws JsonProcessingException, Exception {
-		System.out.println("SaveTest is called");
-		User user = new User("John", "Doe", "+228 90 12 13 14", "john.doe@gmail.com");
+	public void signupTest() throws JsonProcessingException, Exception {
+		System.out.println("SignupTest is called");
+		User user = new User("John", "Doe", "+228 90 12 13 54", "john.doe@gmail.com");
 		user.setModBy(1);
 		user.setUserName("john.doe");
 		user.setPassword("secret@Password");
@@ -68,9 +68,10 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 		String userJson = mapper.writeValueAsString(user);
 		System.out.println(userJson);
 		try {
-			mockMvc.perform(post("/save/{entity}", "user").contentType(MediaType.APPLICATION_JSON).content(userJson))
-					.andExpect(status().isOk()).andExpect(jsonPath("userName", is(user.getUserName())))
-					.andDo(document("save", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
+			mockMvc.perform(post("/api/auth/signup").contentType(MediaType.APPLICATION_JSON).content(userJson))
+					.andExpect(status().isOk())
+                                        .andExpect(jsonPath("userName", is(user.getUserName())))
+					.andDo(document("signup", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
 							requestFields(fieldWithPath("id").description("User id").ignored(),
 									fieldWithPath("userName").description("Nom d'utilisateur"),
 									fieldWithPath("password").description("Mot de passe"),
@@ -92,7 +93,7 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 			throw (e);
 		}
 	}
-  
+ /*       
         @Test
 	@Order(2)
 	public void loginTest() throws JsonProcessingException, Exception {
@@ -104,20 +105,14 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 		try {
 			mockMvc.perform(post("/api/auth/signin").contentType(MediaType.APPLICATION_JSON).content(userJson))
 					.andExpect(status().isOk())
-                                        .andExpect(jsonPath("userName", is(user1.getUsername())))
-					.andDo(document("login", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),							requestFields(fieldWithPath("id").description("User id").ignored(),
+//                                        .andExpect(jsonPath("userName", is(user1.getUserName())))
+					.andDo(document("signin", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
+                                                                        requestFields(fieldWithPath("id").description("User id").ignored(),
 									fieldWithPath("userName").description("Nom d'utilisateur"),
-									fieldWithPath("password").description("Mot de passe"),
-									fieldWithPath("firstName").description("Prenom").ignored(),
-									fieldWithPath("lastName").description("Nom").ignored(),
-									fieldWithPath("phone").description("Telephone").ignored(),
-									fieldWithPath("eMail").description("E-mail").ignored(),
-									fieldWithPath("type").description("Set this to user").ignored(),
-									fieldWithPath("createDateTime").description("Date de creation").ignored(),
-									fieldWithPath("modDateTime").description("Date de modification").ignored(),
-									fieldWithPath("error").description("Utiliser pour le message d'erreur").ignored(),
-									fieldWithPath("modBy").description("Id de la personne connetee").ignored())));
-
+									fieldWithPath("email").description("E-mail").ignored(),
+									fieldWithPath("roles").description("Set role to user").ignored(),
+									fieldWithPath("accessToken").description("The Token").ignored(),
+                                                                        fieldWithPath("tokenType").description("The token Type").ignored())));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw (e);
@@ -129,7 +124,7 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 	public void deleteUserTest() throws JsonProcessingException, Exception {
 		System.out.println("delete is called");
                 User user = new User("John", "Doe", "+228 90 12 13 14", "john.doe@gmail.com");
-		user.setId(57);
+		
                 user.setModBy(1);
 		user.setUserName("john.doe");
 		user.setPassword("secret@Password");
@@ -167,4 +162,5 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 		}
 	}
 
+        */
 }
