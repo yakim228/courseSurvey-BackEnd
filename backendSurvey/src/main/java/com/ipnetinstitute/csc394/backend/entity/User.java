@@ -87,6 +87,65 @@ public class User extends BaseEntity {
 	
 	
 	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public List<Student> getStudent() {
+		return student;
+	}
+	public void setStudent(List<Student> student) {
+		this.student = student;
+	}
+	public List<Teacher> getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(List<Teacher> teacher) {
+		this.teacher = teacher;
+	}
+	public Set<Role> getRole() {
+		return role;
+	}
+	public void setRole(Set<Role> role) {
+		this.role = role;
+	}
+
+
+
+
+
 	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
 	private List<Student> student= new ArrayList<Student>();
 	
