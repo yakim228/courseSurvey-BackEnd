@@ -33,6 +33,7 @@ use of HTTP verbs.
 
 Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
 
+<<<<<<< HEAD
 
 == Signup 
 .request
@@ -87,3 +88,13 @@ include::{snippets}/getAllUsers/http-request.adoc[]
 
 .response
 include::{snippets}/getAllUsers/http-response.adoc[]
+=======
+== Signup  
+.request
+include::{snippets}/signup/http-request.adoc[]
+include::{snippets}/signup/request-fields.adoc[]
+
+.response
+include::{snippets}/signup/http-response.adoc[]
+
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f

@@ -12,8 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="student")
+@Getter 
+@Setter
 public class Student extends BaseEntity{
 	String matricule;
 
@@ -38,8 +43,5 @@ public class Student extends BaseEntity{
 	
 	@OneToMany(mappedBy = "student", cascade = {CascadeType.ALL})
 	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
-	
-	
-	
-	
+
 }

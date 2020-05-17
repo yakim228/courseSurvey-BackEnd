@@ -6,32 +6,34 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Entity
-@Table(name= "student_survey")
-@AllArgsConstructor@NoArgsConstructor
+@Table(name = "student_survey")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class StudentSurvey extends BaseEntity {
 	String comments;
 	Short is_na;
 	Integer rating;
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name ="id_survey", nullable= false)
-private Survey survey;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_survey", nullable = false)
+	private Survey survey;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_student", nullable = false)
+	private Student student;
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name ="id_student", nullable= false)
-private Student student;
-
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name ="id_question", nullable= false)
-private Question question;
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_question", nullable = false)
+	private Question question;
 
 }

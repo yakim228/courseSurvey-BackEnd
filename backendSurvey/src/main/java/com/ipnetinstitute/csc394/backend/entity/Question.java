@@ -11,21 +11,22 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@AllArgsConstructor@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class Question  extends BaseEntity{
-	
-	
+@Getter 
+@Setter
+public class Question  extends BaseEntity{	
 	String title;
 	@OneToMany(mappedBy = "question", cascade = { CascadeType.ALL })
 	// @OneToMany(cascade = { CascadeType.ALL })
 	private List<CatSurveyQuestion> cat_survey_questions = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "question", cascade = {CascadeType.ALL})
-	private List<StudentSurvey> studentSurveys = new ArrayList<>();;
-	
-
+	private List<StudentSurvey> studentSurveys = new ArrayList<>();
 }

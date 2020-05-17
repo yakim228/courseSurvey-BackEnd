@@ -10,17 +10,20 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Data
-@AllArgsConstructor@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter 
+@Setter
 public class Classe extends BaseEntity{
 	
 	String name;
 	
 	@OneToMany(mappedBy = "classe", cascade = {CascadeType.ALL})
 	private List<Course> courses = new ArrayList<>() ;
-	
-
 }

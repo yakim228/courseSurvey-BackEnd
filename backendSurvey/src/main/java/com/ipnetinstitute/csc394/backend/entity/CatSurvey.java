@@ -16,8 +16,10 @@ import lombok.Setter;
 
 @Entity
 @Table(name= "cat_survey")
-@AllArgsConstructor@NoArgsConstructor
-@Getter @Setter
+@AllArgsConstructor 
+@NoArgsConstructor
+@Getter 
+@Setter
 public class CatSurvey extends BaseEntity{
 	
 	String name;
@@ -29,6 +31,4 @@ public class CatSurvey extends BaseEntity{
 	@OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL})
 	private List<Survey> surveys = new ArrayList<Survey>();
 
-	
-	
 }

@@ -5,20 +5,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.ipnetinstitute.csc394.backend.BackendSurveyApplication;
+<<<<<<< HEAD
 import com.ipnetinstitute.csc394.backend.dao.BaseEntityRepository;
 import com.ipnetinstitute.csc394.backend.entity.CatSurvey;
 import com.ipnetinstitute.csc394.backend.entity.Student;
 import com.ipnetinstitute.csc394.backend.entity.Term;
 import com.ipnetinstitute.csc394.backend.entity.User;
 import com.ipnetinstitute.csc394.backend.payload.request.LoginRequest;
+=======
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.jupiter.api.BeforeEach;
+<<<<<<< HEAD
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
+=======
+import org.junit.jupiter.api.Order;
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -46,19 +53,25 @@ import org.springframework.web.context.WebApplicationContext;
 @ExtendWith({ RestDocumentationExtension.class, SpringExtension.class })
 @SpringBootTest
 @AutoConfigureRestDocs(outputDir = "target/generated-snippets")
+<<<<<<< HEAD
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+=======
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 class BackendSurveyApplicationTests extends SpringBootServletInitializer {
 
 	private ObjectMapper mapper = new ObjectMapper();
 	@Autowired
 	private WebApplicationContext context;
 
+<<<<<<< HEAD
         @Autowired
 	private BaseEntityRepository<User> userRepo;
         
         @Autowired
 	private BaseEntityRepository<CatSurvey> catSurveyRepo;
         
+=======
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 	private MockMvc mockMvc;
 
 	@BeforeEach
@@ -67,6 +80,7 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
 				.apply(documentationConfiguration(restDocumentation)).build();
 	}
+<<<<<<< HEAD
 
 	@Test
 	@Order(1)
@@ -339,4 +353,95 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer {
 			throw (e);
 		}
 	}
+=======
+	/*
+	 * @Test
+	 * 
+	 * @Order(1) public void signupTest() throws JsonProcessingException, Exception
+	 * { System.out.println("SignupTest is called"); User user = new User("John",
+	 * "Doe", "+228 90 12 13 54", "john.doe@gmail.com"); user.setModBy(1);
+	 * user.setUserName("john.doe"); user.setPassword("secret@Password");
+	 * user.setModDateTime(new Date()); user.setCreateDateTime(new Date());
+	 * System.out.println(user); String userJson = mapper.writeValueAsString(user);
+	 * System.out.println(userJson); try {
+	 * mockMvc.perform(post("/api/auth/signup").contentType(MediaType.
+	 * APPLICATION_JSON).content(userJson)) .andExpect(status().isOk())
+	 * .andExpect(jsonPath("userName", is(user.getUserName())))
+	 * .andDo(document("signup", preprocessRequest(prettyPrint()),
+	 * preprocessResponse(prettyPrint()),
+	 * requestFields(fieldWithPath("id").description("User id").ignored(),
+	 * fieldWithPath("userName").description("Nom d'utilisateur"),
+	 * fieldWithPath("password").description("Mot de passe"),
+	 * fieldWithPath("firstName").description("Prenom"),
+	 * fieldWithPath("lastName").description("Nom"),
+	 * fieldWithPath("phone").description("Telephone"),
+	 * fieldWithPath("email").description("E-mail"),
+	 * fieldWithPath("student").description("La liste d'eleves"),
+	 * fieldWithPath("role").description("La liste de roles"),
+	 * fieldWithPath("teacher").description("La liste d'enseignants"),
+	 * fieldWithPath("type").description("Set this to user"),
+	 * fieldWithPath("createDateTime").description("Date de creation").ignored(),
+	 * fieldWithPath("modDateTime").description("Date de modification").ignored(),
+	 * fieldWithPath("error").description("Utiliser pour le message d'erreur").
+	 * ignored(),
+	 * fieldWithPath("modBy").description("Id de la personne connetee"))));
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); throw (e); } }
+	 */
+
+	/*
+	 * @Test
+	 * 
+	 * @Order(2) public void signinTest() throws JsonProcessingException, Exception
+	 * { System.out.println("signinTest is called"); LoginRequest user1 = new
+	 * LoginRequest("john.doe", "secret@Password"); System.out.println(user1);
+	 * String userJson = mapper.writeValueAsString(user1);
+	 * System.out.println(userJson); try {
+	 * mockMvc.perform(post("/api/auth/signin").contentType(MediaType.
+	 * APPLICATION_JSON).content(userJson)) .andExpect(status().isOk()) //
+	 * .andExpect(jsonPath("userName", is(user1.getUserName())))
+	 * .andDo(document("signin", preprocessRequest(prettyPrint()),
+	 * preprocessResponse(prettyPrint()),
+	 * requestFields(fieldWithPath("id").description("User id").ignored(),
+	 * fieldWithPath("userName").description("Nom d'utilisateur"),
+	 * fieldWithPath("email").description("E-mail").ignored(),
+	 * fieldWithPath("roles").description("Set role to user").ignored(),
+	 * fieldWithPath("accessToken").description("The Token").ignored(),
+	 * fieldWithPath("tokenType").description("The token Type").ignored()))); }
+	 * catch (Exception e) { e.printStackTrace(); throw (e); } }
+	 */
+	/*
+	 * @Test
+	 * 
+	 * @Order(3) public void deleteUserTest() throws JsonProcessingException,
+	 * Exception { System.out.println("delete is called"); User user = new
+	 * User("John", "Doe", "+228 90 12 13 14", "john.doe@gmail.com");
+	 * 
+	 * user.setModBy(1); user.setUserName("john.doe");
+	 * user.setPassword("secret@Password"); String userJson =
+	 * mapper.writeValueAsString(user); try {
+	 * mockMvc.perform(post("/delete/{entity}","user").contentType(MediaType.
+	 * APPLICATION_JSON) .content(userJson)).andExpect(status().isOk())
+	 * .andExpect(MockMvcResultMatchers.content().string("Success"))
+	 * .andDo(document("deleteUser", preprocessRequest(prettyPrint()),
+	 * preprocessResponse(prettyPrint())
+	 * //requestFields(fieldWithPath("content").description("User name"))
+	 * //responseFields(fieldWithPath("content").
+	 * description("Success or Error: Error message")) ));
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); throw (e); } }
+	 * 
+	 * @Test
+	 * 
+	 * @Order(4) public void countTest() throws JsonProcessingException, Exception {
+	 * System.out.println("Count is called"); try {
+	 * mockMvc.perform(get("/count/{entity}",
+	 * "user").contentType(MediaType.APPLICATION_JSON))
+	 * .andExpect(status().isOk()).andDo(document("count",
+	 * preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())));
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); throw (e); } }
+	 * 
+	 */
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 }

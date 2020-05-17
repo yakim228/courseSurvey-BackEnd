@@ -8,12 +8,17 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "cat_survey_question")
-@AllArgsConstructor@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Getter 
+@Setter
 public class CatSurveyQuestion  extends BaseEntity{
 	
 	Integer seq_nbr;
@@ -25,5 +30,4 @@ public class CatSurveyQuestion  extends BaseEntity{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="id_cat_survey", nullable = false)
 	private CatSurvey cat_survey;
-
 }

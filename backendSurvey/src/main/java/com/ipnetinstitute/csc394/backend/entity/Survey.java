@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -19,32 +18,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
-@AllArgsConstructor@NoArgsConstructor
-public class Survey extends BaseEntity{
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Survey extends BaseEntity {
 
-	
 	String title, description, begin_message, end_message;
-	
-	Date begin_date, end_date;
-	
-	Integer status;
-	
 
-	
-	@OneToMany(mappedBy = "survey" , cascade = {CascadeType.ALL})
+	Date begin_date, end_date;
+
+	Integer status;
+
+	@OneToMany(mappedBy = "survey", cascade = { CascadeType.ALL })
 	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
 
-
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_cat_survey", nullable = false)
+	@JoinColumn(name = "id_cat_survey", nullable = false)
 	private CatSurvey cat_survey;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_course", nullable = false)
 	private Course course;
-
-	// @OneToMany(mappedBy = "student", cascade = { CascadeType.ALL })
-	// private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
 
 }
