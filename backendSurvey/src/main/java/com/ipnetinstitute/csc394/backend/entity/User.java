@@ -18,12 +18,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="users")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseEntity {
-	
-
 
 	String firstName;
 	String lastName;
@@ -32,14 +32,16 @@ public class User extends BaseEntity {
 	String email;
 	String password;
 
-	// public User() {
-	// }
-        public User(String firstName, String lastName,String phone, String email) {
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String phone, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
 		this.email = email;
 	}
+
 	public User(String firstName, String lastName, String userName, String phone, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -49,120 +51,125 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	
-
-
-
 	// public String getFirstName() {
-	// 	return firstName;
+	// return firstName;
 	// }
 
 	// public void setFirstName(String firstName) {
-	// 	this.firstName = firstName;
+	// this.firstName = firstName;
 	// }
 
 	// public String getLastName() {
-	// 	return lastName;
+	// return lastName;
 	// }
 
 	// public void setLastName(String lastName) {
-	// 	this.lastName = lastName;
+	// this.lastName = lastName;
 	// }
 
 	// public String getPhone() {
-	// 	return phone;
+	// return phone;
 	// }
 
 	// public void setPhone(String phone) {
-	// 	this.phone = phone;
+	// this.phone = phone;
 	// }
 
 	// public String geteMail() {
-	// 	return email;
+	// return email;
 	// }
 
 	// public void seteMail(String email) {
-	// 	this.email = email;
+	// this.email = email;
 	// }
-	
-	
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public List<Student> getStudent() {
 		return student;
 	}
+
 	public void setStudent(List<Student> student) {
 		this.student = student;
 	}
+
 	public List<Teacher> getTeacher() {
 		return teacher;
 	}
+
 	public void setTeacher(List<Teacher> teacher) {
 		this.teacher = teacher;
 	}
+
 	public Set<Role> getRole() {
 		return role;
 	}
+
 	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
 
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private List<Student> student = new ArrayList<Student>();
 
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private List<Teacher> teacher = new ArrayList<Teacher>();
 
-
-
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
-	private List<Student> student= new ArrayList<Student>();
-	
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
-	private List<Teacher> teacher= new ArrayList<Teacher>();
-	
-	
-	 @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Role> role = new HashSet<>();
-	
 
 	// public Set<String> getRole() {
-	// 	return this.roles;
+	// return this.roles;
 	// }
 
 	// public void setRole(Set<String> role) {
-	// 	this.role = role;
+	// this.role = role;
 	// }
 
 }

@@ -26,4 +26,28 @@ public class CatSurveyQuestion  extends BaseEntity{
 	@JoinColumn(name ="id_cat_survey", nullable = false)
 	private CatSurvey cat_survey;
 
+	public Integer getSeq_nbr() {
+		return seq_nbr;
+	}
+
+	public void setSeq_nbr(Integer seq_nbr) {
+		this.seq_nbr = seq_nbr;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	public CatSurvey getCat_survey() {
+		return cat_survey;
+	}
+
+	public void setCat_survey(CatSurvey cat_survey) {
+		this.cat_survey = cat_survey;
+	}
+
 }

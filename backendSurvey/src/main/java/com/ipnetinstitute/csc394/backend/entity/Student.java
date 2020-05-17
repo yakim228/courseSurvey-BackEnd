@@ -38,6 +38,30 @@ public class Student extends BaseEntity{
 	
 	@OneToMany(mappedBy = "student", cascade = {CascadeType.ALL})
 	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<StudentCourse> getStudentCourses() {
+		return studentCourses;
+	}
+
+	public void setStudentCourses(List<StudentCourse> studentCourses) {
+		this.studentCourses = studentCourses;
+	}
+
+	public List<StudentSurvey> getStudent_surveys() {
+		return student_surveys;
+	}
+
+	public void setStudent_surveys(List<StudentSurvey> student_surveys) {
+		this.student_surveys = student_surveys;
+	}
 	
 	
 	

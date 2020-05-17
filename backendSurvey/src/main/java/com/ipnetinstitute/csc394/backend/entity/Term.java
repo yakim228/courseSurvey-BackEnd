@@ -22,6 +22,30 @@ public class Term extends BaseEntity {
 	
 	@OneToMany(mappedBy = "term", cascade = {CascadeType.ALL} )
 	private List <Course> courses = new ArrayList<Course>();
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 	
 
 }
