@@ -8,12 +8,17 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name= "student_course")
-@AllArgsConstructor@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Getter 
+@Setter
 public class StudentCourse extends BaseEntity{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -22,22 +27,6 @@ public class StudentCourse extends BaseEntity{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="id_student", nullable = false)
-	private Student student;
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
+	private Student student; 
 
 }

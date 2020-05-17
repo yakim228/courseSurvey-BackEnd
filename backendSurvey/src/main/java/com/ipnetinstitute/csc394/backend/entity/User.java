@@ -19,10 +19,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class User extends BaseEntity {
 
 	String firstName;
@@ -32,8 +29,6 @@ public class User extends BaseEntity {
 	String email;
 	String password;
 
-	public User() {
-	}
 
 	public User(String firstName, String lastName, String phone, String email) {
 		this.firstName = firstName;
@@ -51,37 +46,15 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	// public String getFirstName() {
-	// return firstName;
-	// }
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private List<Student> student = new ArrayList<Student>();
 
-	// public void setFirstName(String firstName) {
-	// this.firstName = firstName;
-	// }
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private List<Teacher> teacher = new ArrayList<Teacher>();
 
-	// public String getLastName() {
-	// return lastName;
-	// }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<Role> role = new HashSet<>();
 
-	// public void setLastName(String lastName) {
-	// this.lastName = lastName;
-	// }
-
-	// public String getPhone() {
-	// return phone;
-	// }
-
-	// public void setPhone(String phone) {
-	// this.phone = phone;
-	// }
-
-	// public String geteMail() {
-	// return email;
-	// }
-
-	// public void seteMail(String email) {
-	// this.email = email;
-	// }
 
 	public String getFirstName() {
 		return firstName;
@@ -155,21 +128,5 @@ public class User extends BaseEntity {
 		this.role = role;
 	}
 
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private List<Student> student = new ArrayList<Student>();
-
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private List<Teacher> teacher = new ArrayList<Teacher>();
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private Set<Role> role = new HashSet<>();
-
-	// public Set<String> getRole() {
-	// return this.roles;
-	// }
-
-	// public void setRole(Set<String> role) {
-	// this.role = role;
-	// }
 
 }

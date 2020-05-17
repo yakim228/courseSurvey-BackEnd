@@ -16,8 +16,10 @@ import lombok.Setter;
 
 @Entity
 @Table(name= "cat_survey")
-@AllArgsConstructor@NoArgsConstructor
-@Getter @Setter
+@AllArgsConstructor 
+@NoArgsConstructor
+@Getter 
+@Setter
 public class CatSurvey extends BaseEntity{
 	
 	String name;
@@ -29,38 +31,4 @@ public class CatSurvey extends BaseEntity{
 	@OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL})
 	private List<Survey> surveys = new ArrayList<Survey>();
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<CatSurveyQuestion> getCatSurveyQuestions() {
-		return catSurveyQuestions;
-	}
-
-	public void setCatSurveyQuestions(List<CatSurveyQuestion> catSurveyQuestions) {
-		this.catSurveyQuestions = catSurveyQuestions;
-	}
-
-	public List<Survey> getSurveys() {
-		return surveys;
-	}
-
-	public void setSurveys(List<Survey> surveys) {
-		this.surveys = surveys;
-	}
-
-	
-	
 }

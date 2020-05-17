@@ -12,11 +12,16 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@AllArgsConstructor@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Getter 
+@Setter
 public class Course extends BaseEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -37,45 +42,4 @@ public class Course extends BaseEntity {
 
 	@OneToMany(mappedBy = "course", cascade = { CascadeType.ALL })
 	private List<Survey> surveys = new ArrayList<Survey>();
-
-	public Term getTerm() {
-		return term;
-	}
-
-	public void setTerm(Term term) {
-		this.term = term;
-	}
-
-	public Classe getClasse() {
-		return classe;
-	}
-
-	public void setClasse(Classe classe) {
-		this.classe = classe;
-	}
-
-	public Subject getSubject() {
-		return subject;
-	}
-
-	public void setSubject(Subject subject) {
-		this.subject = subject;
-	}
-
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-
-	public List<Survey> getSurveys() {
-		return surveys;
-	}
-
-	public void setSurveys(List<Survey> surveys) {
-		this.surveys = surveys;
-	}
-
 }
