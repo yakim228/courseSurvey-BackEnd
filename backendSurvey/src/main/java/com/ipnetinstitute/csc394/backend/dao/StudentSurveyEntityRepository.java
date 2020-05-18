@@ -17,6 +17,6 @@ public interface StudentSurveyEntityRepository  extends BaseEntityRepository<Stu
      " inner join ( select sy.* from survey sy inner join course c " +
       " on sy.id_course = c.id WHERE c.id : CourseID) " +
        "as sy on ss.id_survey = sy.id ", nativeQuery = true)
-    List findStudentSurveyByCourse(@Param("CourseID") Integer CourseID);
+    List<StudentSurvey> findStudentSurveyByCourse(@Param("CourseID") Integer CourseID);
 
 }

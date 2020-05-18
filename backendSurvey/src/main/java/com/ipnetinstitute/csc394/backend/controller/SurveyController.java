@@ -3,6 +3,7 @@ package com.ipnetinstitute.csc394.backend.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ipnetinstitute.csc394.backend.dao.SurveyEntityRepository;
+import com.ipnetinstitute.csc394.backend.entity.Survey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,11 @@ public class SurveyController {
     private SurveyEntityRepository surveyRepo;
     
 	@GetMapping("/getAllSurveyByStudent/{id}")
-    public List getAllSurveyByStudent(@PathVariable("id") Integer id) {
+    public List<Survey> getAllSurveyByStudent(@PathVariable("id") Integer id) {
 
-        List result = new ArrayList();
+		List<Survey> result = new ArrayList<Survey>();
         try {
-            result = (List) surveyRepo.findAllSurveyRespondbyUser(id);
+        	result=  surveyRepo.findAllSurveyRespondbyUser(id);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

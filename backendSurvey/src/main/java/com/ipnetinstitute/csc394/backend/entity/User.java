@@ -10,16 +10,8 @@ import javax.persistence.Entity;
 // import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
-@Table(name = "users")
-@NoArgsConstructor
+@Table(name = "users") 
 public class User extends BaseEntity {
 
 	String firstName;
@@ -29,7 +21,7 @@ public class User extends BaseEntity {
 	String email;
 	String password;
 
-
+	public User() {}
 	public User(String firstName, String lastName, String phone, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -54,7 +46,6 @@ public class User extends BaseEntity {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Role> role = new HashSet<>();
-
 
 	public String getFirstName() {
 		return firstName;
@@ -88,28 +79,9 @@ public class User extends BaseEntity {
 		this.phone = phone;
 	}
 
-<<<<<<< HEAD
-	// public void seteMail(String email) {
-	// 	this.email = email;
-	// }
-	
-	
-	
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
-	private List<Student> student= new ArrayList<Student>();
-	
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
-	private List<Teacher> teacher= new ArrayList<Teacher>();
-	
-	
-	 @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
-	private Set<Role> role = new HashSet<>();
-	
-=======
 	public String getEmail() {
 		return email;
 	}
->>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -146,6 +118,7 @@ public class User extends BaseEntity {
 	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
+
 
 
 }
