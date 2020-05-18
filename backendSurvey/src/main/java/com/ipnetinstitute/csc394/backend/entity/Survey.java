@@ -29,9 +29,10 @@ public class Survey extends BaseEntity {
 	Date begin_date, end_date;
 
 	Integer status;
-
-	@OneToMany(mappedBy = "survey", cascade = { CascadeType.ALL })
-	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
+	/*
+	 * @OneToMany(mappedBy = "survey", cascade = { CascadeType.ALL }) private
+	 * List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
+	 */
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cat_survey", nullable = false)

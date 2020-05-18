@@ -23,10 +23,12 @@ import lombok.Setter;
 @Setter
 public class Question  extends BaseEntity{	
 	String title;
-	@OneToMany(mappedBy = "question", cascade = { CascadeType.ALL })
-	// @OneToMany(cascade = { CascadeType.ALL })
-	private List<CatSurveyQuestion> cat_survey_questions = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "question", cascade = {CascadeType.ALL})
-	private List<StudentSurvey> studentSurveys = new ArrayList<>();
+	/*
+	 * @OneToMany(mappedBy = "question", cascade = { CascadeType.ALL })
+	 * // @OneToMany(cascade = { CascadeType.ALL }) private List<CatSurveyQuestion>
+	 * cat_survey_questions = new ArrayList<>();
+	 * 
+	 * @OneToMany(mappedBy = "question", cascade = {CascadeType.ALL}) private
+	 * List<StudentSurvey> studentSurveys = new ArrayList<>();
+	 */
 }

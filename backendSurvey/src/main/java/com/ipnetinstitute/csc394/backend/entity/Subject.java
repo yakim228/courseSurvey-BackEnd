@@ -23,7 +23,9 @@ public class Subject extends BaseEntity {
 	String code;
 	String name;
 	
-	@OneToMany(mappedBy = "term", cascade = {CascadeType.ALL} )
-	private List <Course> courses = new ArrayList<Course>();
+	/*
+	 * @OneToMany(mappedBy = "term", cascade = {CascadeType.ALL} ) private List
+	 * <Course> courses = new ArrayList<Course>();
+	 */
 
 }

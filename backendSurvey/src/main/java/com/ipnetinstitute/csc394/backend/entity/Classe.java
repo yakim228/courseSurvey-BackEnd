@@ -24,6 +24,8 @@ public class Classe extends BaseEntity{
 	
 	String name;
 	
-	@OneToMany(mappedBy = "classe", cascade = {CascadeType.ALL})
-	private List<Course> courses = new ArrayList<>() ;
+	/*
+	 * @OneToMany(mappedBy = "classe", cascade = {CascadeType.ALL}) private
+	 * List<Course> courses = new ArrayList<>() ;
+	 */
 }

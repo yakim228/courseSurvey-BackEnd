@@ -40,6 +40,8 @@ public class Course extends BaseEntity {
 	@JoinColumn(name ="id_teacher", nullable = false)
 	private Teacher teacher;
 
-	@OneToMany(mappedBy = "course", cascade = { CascadeType.ALL })
-	private List<Survey> surveys = new ArrayList<Survey>();
+	/*
+	 * @OneToMany(mappedBy = "course", cascade = { CascadeType.ALL }) private
+	 * List<Survey> surveys = new ArrayList<Survey>();
+	 */
 }

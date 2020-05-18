@@ -28,8 +28,10 @@ public class Teacher extends BaseEntity{
 	@JoinColumn(name="id_user", nullable = false, unique = true)
 	private User user;
 	
-	@OneToMany(mappedBy = "teacher", cascade = {CascadeType.ALL})
-	private List<Course> courses = new ArrayList<Course>();
+	/*
+	 * @OneToMany(mappedBy = "teacher", cascade = {CascadeType.ALL}) private
+	 * List<Course> courses = new ArrayList<Course>();
+	 */
 
 	public User getUser() {
 		return user;
@@ -39,13 +41,6 @@ public class Teacher extends BaseEntity{
 		this.user = user;
 	}
 
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-	
+ 
 	
 }

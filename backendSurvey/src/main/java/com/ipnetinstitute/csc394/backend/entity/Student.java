@@ -35,13 +35,16 @@ public class Student extends BaseEntity{
 	@JoinColumn(name="id_user", nullable = false, unique = true)
 	private User user;
 	
-
-	@OneToMany(mappedBy = "student", cascade = {CascadeType.ALL})
-	private List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
+	/*
+	 * @OneToMany(mappedBy = "student", cascade = {CascadeType.ALL}) private
+	 * List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
+	 */
 	
 
 	
-	@OneToMany(mappedBy = "student", cascade = {CascadeType.ALL})
-	private List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
+	/*
+	 * @OneToMany(mappedBy = "student", cascade = {CascadeType.ALL}) private
+	 * List<StudentSurvey> student_surveys = new ArrayList<StudentSurvey>();
+	 */
 
 }

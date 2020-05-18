@@ -24,11 +24,12 @@ public class CatSurvey extends BaseEntity{
 	
 	String name;
 	String description;
-	
-	@OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL})
-	private  List<CatSurveyQuestion> catSurveyQuestions = new ArrayList<>();
-
-	@OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL})
-	private List<Survey> surveys = new ArrayList<Survey>();
+	/*
+	 * @OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL}) private
+	 * List<CatSurveyQuestion> catSurveyQuestions = new ArrayList<>();
+	 * 
+	 * @OneToMany(mappedBy = "cat_survey", cascade = {CascadeType.ALL}) private
+	 * List<Survey> surveys = new ArrayList<Survey>();
+	 */
 
 }

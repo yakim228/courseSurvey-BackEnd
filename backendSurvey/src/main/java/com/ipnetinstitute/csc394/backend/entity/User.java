@@ -1,17 +1,14 @@
-package com.ipnetinstitute.csc394.backend.entity;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+package com.ipnetinstitute.csc394.backend.entity; 
+import java.util.HashSet; 
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-// import javax.persistence.FetchType;
+import javax.persistence.Entity; 
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 @Entity
-@Table(name = "users") 
+@Table(name = "users")
 public class User extends BaseEntity {
 
 	String firstName;
@@ -21,7 +18,9 @@ public class User extends BaseEntity {
 	String email;
 	String password;
 
-	public User() {}
+	public User() {
+	}
+
 	public User(String firstName, String lastName, String phone, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -38,11 +37,13 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private List<Student> student = new ArrayList<Student>();
-
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private List<Teacher> teacher = new ArrayList<Teacher>();
+	/*
+	 * @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
+	 * List<Student> student = new ArrayList<Student>();
+	 * 
+	 * @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
+	 * List<Teacher> teacher = new ArrayList<Teacher>();
+	 */
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Role> role = new HashSet<>();
@@ -95,22 +96,6 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	public List<Student> getStudent() {
-		return student;
-	}
-
-	public void setStudent(List<Student> student) {
-		this.student = student;
-	}
-
-	public List<Teacher> getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(List<Teacher> teacher) {
-		this.teacher = teacher;
-	}
-
 	public Set<Role> getRole() {
 		return role;
 	}
@@ -118,7 +103,5 @@ public class User extends BaseEntity {
 	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
-
-
 
 }
