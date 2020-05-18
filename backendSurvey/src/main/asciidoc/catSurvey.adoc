@@ -1,0 +1,57 @@
+=  Les REST API de Course Survey
+IPNET - CSC394 <panawe.batanado@ipnetinstitute.com> 1.0.0;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:sectnums:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create or update a resource
+
+| `DELETE`
+| Used to delete a resource
+
+|===
+
+Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
+
+== SaveCatSurvey
+.request
+include::{snippets}/saveCatSurvey/http-request.adoc[]
+include::{snippets}/saveCatSurvey/request-fields.adoc[]
+
+.response
+include::{snippets}/saveCatSurvey/http-response.adoc[]
+
+== DeleteCatSurvey
+.request
+include::{snippets}/deleteCatSurvey/http-request.adoc[]
+include::{snippets}/deleteCatSurvey/request-fields.adoc[]
+
+.response
+include::{snippets}/deleteCatSurvey/http-response.adoc[]
+
+== DeleteCatSurveyById
+.request
+include::{snippets}/deleteCatSurveyById/http-request.adoc[]
+
+.response
+include::{snippets}/deleteCatSurveyById/http-response.adoc[]

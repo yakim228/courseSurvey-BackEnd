@@ -226,7 +226,7 @@
 				<executions>
 					<execution>
 						<id>generate-docs</id>
-						<phase>prepare-package</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
@@ -243,6 +243,8 @@
 						<version>${spring-restdocs.version}</version>
 					</dependency>
 				</dependencies>
+<<<<<<< HEAD
+=======
 				<configuration>
 					<sourceDirectory>${project.basedir}/src/main/asciidoc/</sourceDirectory>
 					<sourceDocumentName>index.adoc</sourceDocumentName>
@@ -252,11 +254,14 @@
 						<snippets>${project.build.directory}/generated-snippets</snippets>
 					</attributes>
 				</configuration>
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+<<<<<<< HEAD
+=======
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
@@ -282,6 +287,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+>>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
 		</plugins>
 	</build>
 

@@ -126,6 +126,7 @@ public class BaseController implements InitializingBean {
 	public String delete(@PathVariable("entity") String entity, @RequestBody BaseEntity be)
 			throws ClassNotFoundException {
 		try {
+                        System.out.println("============"+be+"===========");
 			repos.get(entity).delete(be);
 			return "Success";
 		} catch (Exception e) {
