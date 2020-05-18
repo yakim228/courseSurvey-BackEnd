@@ -9,7 +9,7 @@
 		<version>2.3.0.M3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
+	
 	<groupId>com.ipnetinstitute.csc394.backend</groupId>
 	<artifactId>csc394backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -23,29 +23,29 @@
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<!--<version>1.0.0.GA</version> -->
-		</dependency>
+                <dependency>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                    <!--<version>1.0.0.GA</version>-->
+                </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.10</version>
 			<scope>provided</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security.oauth.boot</groupId>
-			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
-			<version>2.2.3.RELEASE</version>
-		</dependency>
+		
+ 		<dependency>
+        		<groupId>org.springframework.security.oauth.boot</groupId>
+        		<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        		<version>2.2.3.RELEASE</version>
+    		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -107,14 +107,14 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		    <exclusions>
+			<exclusion>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-tomcat</artifactId>
+			</exclusion>
+		    </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -192,9 +192,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.interceptor</groupId>
-			<artifactId>javax.interceptor-api</artifactId>
-			<version>1.2</version>
+		    <groupId>javax.interceptor</groupId>
+		    <artifactId>javax.interceptor-api</artifactId>
+		    <version>1.2</version>
 		</dependency>
 	</dependencies>
 
@@ -226,7 +226,7 @@
 				<executions>
 					<execution>
 						<id>generate-docs</id>
-						<phase>package</phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
@@ -243,51 +243,45 @@
 						<version>${spring-restdocs.version}</version>
 					</dependency>
 				</dependencies>
-<<<<<<< HEAD
-=======
-				<configuration>
-					<sourceDirectory>${project.basedir}/src/main/asciidoc/</sourceDirectory>
-					<sourceDocumentName>index.adoc</sourceDocumentName>
-					<backend>html5</backend>
-					<outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
-					<attributes>
-						<snippets>${project.build.directory}/generated-snippets</snippets>
-					</attributes>
-				</configuration>
->>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
+                                <configuration>
+                                    <sourceDirectory>${project.basedir}/src/main/asciidoc/</sourceDirectory>
+                                    <sourceDocumentName>index.adoc</sourceDocumentName>
+                                    <backend>html5</backend>
+                                    <outputDirectory>${project.build.directory}/generated-sources/documentation/</outputDirectory>
+                                    <attributes>
+                                        <snippets>${project.build.directory}/generated-sources/snippets/</snippets>
+                                    </attributes>
+                                </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<<<<<<< HEAD
-=======
-			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<version>1.5.8</version>
-				<executions>
-					<execution>
-						<id>generate-docs</id>
-						<phase>package</phase>
-						<goals>
-							<goal>process-asciidoc</goal>
-						</goals>
-						<configuration>
-							<backend>html</backend>
-							<doctype>book</doctype>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.springframework.restdocs</groupId>
-						<artifactId>spring-restdocs-asciidoctor</artifactId>
-						<version>${spring-restdocs.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
->>>>>>> fdc0442769b4f53d05958c45920a10bf7d43a88f
+                        <plugin>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctor-maven-plugin</artifactId>
+                            <version>1.5.5</version>
+                            <executions>
+                                <execution>
+                                    <id>generate-docs</id>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>process-asciidoc</goal>
+                                    </goals>
+                                    <configuration>
+                                        <backend>html</backend>
+                                        <doctype>book</doctype>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.asciidoctor</groupId>
+                                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                                    <version>1.5.3</version>
+                                </dependency>
+                            </dependencies>
+                        </plugin>
 		</plugins>
 	</build>
 
@@ -297,16 +291,16 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
-		<repository>
-			<id>central-maven</id>
-			<name>central https Releases</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-		</repository>
-		<repository>
-			<id>central-spring</id>
-			<name>central spring https Releases</name>
-			<url>https://repo.spring.io</url>
-		</repository>
+                <repository>
+                    <id>central-maven</id>
+                    <name>central https Releases</name>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                </repository>
+                <repository>
+                    <id>central-spring</id>
+                    <name>central spring https Releases</name>
+                    <url>https://repo.spring.io</url>
+                </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
