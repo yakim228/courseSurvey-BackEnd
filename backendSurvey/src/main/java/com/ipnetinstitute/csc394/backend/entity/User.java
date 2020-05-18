@@ -1,5 +1,7 @@
 package com.ipnetinstitute.csc394.backend.entity; 
-import java.util.HashSet; 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -37,10 +39,11 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
+	
+//	 @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
+//	 List<Student> student = new ArrayList<Student>();
+	 
 	/*
-	 * @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
-	 * List<Student> student = new ArrayList<Student>();
-	 * 
 	 * @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
 	 * List<Teacher> teacher = new ArrayList<Teacher>();
 	 */
@@ -103,5 +106,7 @@ public class User extends BaseEntity {
 	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
+	
+	
 
 }

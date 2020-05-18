@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Getter 
-@Setter
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@Getter 
+//@Setter
 public class Course extends BaseEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)

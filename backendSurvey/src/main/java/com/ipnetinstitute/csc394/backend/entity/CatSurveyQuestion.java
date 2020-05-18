@@ -27,6 +27,9 @@ public class CatSurveyQuestion  extends BaseEntity{
 	@JoinColumn(name ="id_question", nullable = false)
 	private Question question;
 
+	
+	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="id_cat_survey", nullable = false)
 	private CatSurvey cat_survey;

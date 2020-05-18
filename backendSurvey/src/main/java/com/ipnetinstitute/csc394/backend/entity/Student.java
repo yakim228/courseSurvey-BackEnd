@@ -17,8 +17,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name="student")
-@Getter 
-@Setter
+//@Getter 
+//@Setter
 public class Student extends BaseEntity{
 	String matricule;
 

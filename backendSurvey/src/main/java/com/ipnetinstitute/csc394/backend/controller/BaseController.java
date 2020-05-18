@@ -42,8 +42,8 @@ public class BaseController implements InitializingBean {
 	@Autowired
 	private BaseEntityRepository<Question> questionRepo;
 
-
-	// private BaseEntityRepository<Course> courseRepo;
+	@Autowired
+	private BaseEntityRepository<Course> courseRepo;
 // controller verifier
 // deuxieme test
 	@Autowired
@@ -155,6 +155,7 @@ public class BaseController implements InitializingBean {
 		// repos.put("role", roleRepo);
 		repos.put("cat_survey", cat_surveyRepo);
 		repos.put("term", termRepo);
+		repos.put("course", courseRepo);
 		repos.put("classe", classeRepo);
 		repos.put("survey", surveyRepo);
 		repos.put("subject", subjectRepo);

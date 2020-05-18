@@ -46,14 +46,14 @@ public class Role  {
 	@JoinColumn(name="id_user", nullable = false, unique = true)
 	private User user;
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//	
 
 	// @ManyToOne(fetch = FetchType.LAZY)
 	// @JoinColumn(name = "id_user", nullable = false, unique = true)
