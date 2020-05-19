@@ -1,11 +1,79 @@
-= Java Techie Spring REST Docs Example
-
-This is an example output for a service running at http://localhost:9091:
-
+:toc: left
+:toc-interactive: // the active section will be highlighted
+:toc-mode: offcanvas
+= Documentation sur Le REST API
 == POST API Example
 
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create or update a resource
+
+| `DELETE`
+| Used to delete a resource
+
+|===
+
+Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
+
+
+== Signup  
 .request
-include::{snippets}/save/users/http-request.adoc[]
+include::{snippets}/signup/http-request.adoc[]
+include::{snippets}/signup/request-fields.adoc[]
 
 .response
-include::{snippets}/save/users/http-response.adoc[]
+include::{snippets}/signup/http-response.adoc[]
+
+== Signin
+.request
+include::{snippets}/signin/http-request.adoc[]
+include::{snippets}/signin/request-fields.adoc[]
+
+.response
+include::{snippets}/signin/http-response.adoc[]
+
+== DeleteUser
+.request
+include::{snippets}/deleteUser/http-request.adoc[]
+include::{snippets}/deleteUser/request-fields.adoc[]
+
+.response
+include::{snippets}/deleteUser/http-response.adoc[]
+
+== SaveUser
+.request
+include::{snippets}/saveUser/http-request.adoc[]
+include::{snippets}/saveUser/request-fields.adoc[]
+
+.response
+include::{snippets}/saveUser/http-response.adoc[]
+
+
+== DeleteUserByIdUser
+.request
+include::{snippets}/deleteUserById/http-request.adoc[]
+
+.response
+include::{snippets}/deleteUserById/http-response.adoc[]
+
+== CountUser
+.request
+include::{snippets}/countUsers/http-request.adoc[]
+
+.response
+include::{snippets}/countUsers/http-response.adoc[]
+
+== getAllUsers
+.request
+include::{snippets}/getAllUsers/http-request.adoc[]
+
+.response
+include::{snippets}/getAllUsers/http-response.adoc[]
