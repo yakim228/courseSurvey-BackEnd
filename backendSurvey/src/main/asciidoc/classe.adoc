@@ -1,0 +1,42 @@
+:toc: left
+:toc-interactive: // the active section will be highlighted
+:toc-mode: offcanvas
+= Documentation sur Le REST API
+== POST API Example
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create or update a resource
+
+| `DELETE`
+| Used to delete a resource
+
+|===
+
+Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
+
+
+== SaveClasse
+.request
+include::{snippets}/saveClasse/http-request.adoc[]
+include::{snippets}/saveClasse/request-fields.adoc[]
+
+.response
+include::{snippets}/saveClasse/http-response.adoc[]
+
+
+== DeleteClasse 
+.request
+include::{snippets}/deleteClasse/http-request.adoc[]
+include::{snippets}/deleteClasse/request-fields.adoc[]
+
+.response
+include::{snippets}/deleteClasse/http-response.adoc[]

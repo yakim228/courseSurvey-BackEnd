@@ -94,10 +94,28 @@ public class Survey extends BaseEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cat_survey", nullable = false)
-	private CatSurvey cat_survey;
+	private CatSurvey catSurvey;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_course", nullable = false)
 	private Course course;
+        
+        public CatSurvey getCatSurvey() {
+		return catSurvey;
+	}
+
+	public void setCatSurvey(CatSurvey catSurvey) {
+		this.catSurvey = catSurvey;
+	}
+        
+        public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+        
+        
 
 }

@@ -22,7 +22,7 @@ public class SurveyController {
     @Autowired
     private SurveyEntityRepository surveyRepo;
     
-	@GetMapping("/getAllSurveyByStudent/{id}")
+    @GetMapping("/getAllSurveyByStudent/{id}")
     public List<Survey> getAllSurveyByStudent(@PathVariable("id") Integer id) {
 
 		List<Survey> result = new ArrayList<Survey>();
