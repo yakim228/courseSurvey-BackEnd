@@ -76,5 +76,18 @@ public class SurveyController {
             return result;
         }
     }
+    
+    @GetMapping("/getSurveyByTeacher/{teacherId}")
+    public List getSurveyByTeacher(@PathVariable("teacherId") Integer teacherId) {
+
+        List result = new ArrayList();
+        try {
+            result = (List) surveyRepo.pendingSurvey(teacherId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result;
+        }
+    } 
 
 }
