@@ -100,7 +100,7 @@ public class Survey extends BaseEntity {
 	@JoinColumn(name = "id_course", nullable = false)
 	private Course course;
         
-        public CatSurvey getCatSurvey() {
+/**        public CatSurvey getCatSurvey() {
 		return catSurvey;
 	}
 
@@ -116,6 +116,6 @@ public class Survey extends BaseEntity {
 		this.course = course;
 	}
         
-        
+       **/ 
 
 }
