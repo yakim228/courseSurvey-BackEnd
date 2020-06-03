@@ -31,35 +31,41 @@ use of HTTP verbs.
 Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
 
 
-== SaveClasse
+== SaveSubject
 .request
-include::{snippets}/saveClasse/http-request.adoc[]
-include::{snippets}/saveClasse/request-fields.adoc[]
+include::{snippets}/saveSubject/http-request.adoc[]
+include::{snippets}/saveSubject/request-fields.adoc[]
 
 .response
-include::{snippets}/saveClasse/http-response.adoc[]
+include::{snippets}/saveSubject/http-response.adoc[]
 
-
-== DeleteClasse 
+== DeleteSubject
 .request
-include::{snippets}/deleteClasse/http-request.adoc[]
-include::{snippets}/deleteClasse/request-fields.adoc[]
+include::{snippets}/deleteSubject/http-request.adoc[]
 
 .response
-include::{snippets}/deleteClasse/http-response.adoc[]
+include::{snippets}/deleteSubject/http-response.adoc[]
 
 
-== CountClasse
+== countSubject
 .request
-include::{snippets}/countClasse/http-request.adoc[]
+include::{snippets}/countSubject/http-request.adoc[]
 
 .response
-include::{snippets}/countClasse/http-response.adoc[]
+include::{snippets}/countSubject/http-response.adoc[]
 
 
-== getAllClasse
+== getAllSubject
 .request
-include::{snippets}/getAllClasse/http-request.adoc[]
+include::{snippets}/getAllSubject/http-request.adoc[]
 
 .response
-include::{snippets}/getAllClasse/http-response.adoc[]
+include::{snippets}/getAllSubject/http-response.adoc[]
+
+
+== countSubject
+.request
+include::{snippets}/countSubject/http-request.adoc[]
+
+.response
+include::{snippets}/countSubject/http-response.adoc[]

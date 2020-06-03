@@ -31,35 +31,26 @@ use of HTTP verbs.
 Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
 
 
-== SaveClasse
+== SaveCourse
 .request
-include::{snippets}/saveClasse/http-request.adoc[]
-include::{snippets}/saveClasse/request-fields.adoc[]
+include::{snippets}/saveCourse/http-request.adoc[]
+include::{snippets}/saveCourse/request-fields.adoc[]
 
 .response
-include::{snippets}/saveClasse/http-response.adoc[]
+include::{snippets}/saveCourse/http-response.adoc[]
 
-
-== DeleteClasse 
+== DeleteCourse
 .request
-include::{snippets}/deleteClasse/http-request.adoc[]
-include::{snippets}/deleteClasse/request-fields.adoc[]
+include::{snippets}/deleteCourse/http-request.adoc[]
+include::{snippets}/deleteCourse/request-fields.adoc[]
 
 .response
-include::{snippets}/deleteClasse/http-response.adoc[]
+include::{snippets}/deleteCourse/http-response.adoc[]
 
 
-== CountClasse
+== countCourse
 .request
-include::{snippets}/countClasse/http-request.adoc[]
+include::{snippets}/countCourse/http-request.adoc[]
 
 .response
-include::{snippets}/countClasse/http-response.adoc[]
-
-
-== getAllClasse
-.request
-include::{snippets}/getAllClasse/http-request.adoc[]
-
-.response
-include::{snippets}/getAllClasse/http-response.adoc[]
+include::{snippets}/countCourse/http-response.adoc[]

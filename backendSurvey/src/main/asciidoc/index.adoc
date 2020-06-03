@@ -2,7 +2,14 @@
 :toc-interactive: // the active section will be highlighted
 :toc-mode: offcanvas
 = Documentation sur Le REST API
-== POST API Example
+
+* link:index.html[user]
+* link:classe.html[classe]
+* link:catSurvey.html[categorieSurvey]
+* link:term.html[Term]
+* link:subject.html[Subject]
+* link:question.html[Question]
+* link:course.html[Course]
 
 RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.

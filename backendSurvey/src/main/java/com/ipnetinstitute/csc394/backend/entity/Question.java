@@ -22,7 +22,7 @@ import lombok.Setter;
 @Getter 
 @Setter
 public class Question  extends BaseEntity{	
-	String title;
+	private String title;
 	/*
 	 * @OneToMany(mappedBy = "question", cascade = { CascadeType.ALL })
 	 * // @OneToMany(cascade = { CascadeType.ALL }) private List<CatSurveyQuestion>
@@ -31,4 +31,6 @@ public class Question  extends BaseEntity{
 	 * @OneToMany(mappedBy = "question", cascade = {CascadeType.ALL}) private
 	 * List<StudentSurvey> studentSurveys = new ArrayList<>();
 	 */
+        
+        
 }
