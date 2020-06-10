@@ -1,6 +1,7 @@
 package com.ipnetinstitute.csc394.backend.controller;
 
 import com.ipnetinstitute.csc394.backend.dao.BaseEntityRepository;
+import com.ipnetinstitute.csc394.backend.dao.TeacherEntityRepository;
 import com.ipnetinstitute.csc394.backend.entity.*;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class BaseController implements InitializingBean {
 	@Autowired
 	private BaseEntityRepository<Survey> surveyRepo;
 
+	@Autowired
+	private TeacherEntityRepository teacherResp;
 	
 	@Autowired
 	private BaseEntityRepository<Question> questionRepo;
@@ -144,6 +147,8 @@ public class BaseController implements InitializingBean {
 			return "Error: " + e.getMessage();
 		}
 	}
+
+
 
 	@Override
 	public void afterPropertiesSet() throws Exception {

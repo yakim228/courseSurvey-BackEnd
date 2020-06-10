@@ -1,4 +1,6 @@
 package com.ipnetinstitute.csc394.backend.entity; 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -43,10 +45,17 @@ public class User extends BaseEntity {
 //	 @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
 //	 List<Student> student = new ArrayList<Student>();
 	 
-	/*
-	 * @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }) private
-	 * List<Teacher> teacher = new ArrayList<Teacher>();
-	 */
+
+//	@OneToMany(mappedBy = "user", cascade =  CascadeType.ALL)
+//	private Set<Teacher> teacher = new HashSet<>();
+////	@JsonManagedReference
+//	public Set<Teacher> getTeacher() {
+//		return teacher;
+//	}
+//
+//	public void setTeacher(Set<Teacher> teacher) {
+//		this.teacher = teacher;
+//	}
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Role> role = new HashSet<>();
