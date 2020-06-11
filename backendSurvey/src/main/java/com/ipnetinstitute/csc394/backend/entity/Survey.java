@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -93,24 +94,44 @@ public class Survey extends BaseEntity {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_cat_survey", nullable = false)
+	@JoinColumn(name = "id_cat_survey", nullable = false, referencedColumnName = "id", updatable = false, insertable = false)
 	private CatSurvey catSurvey;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_course", nullable = false)
+	@JoinColumn(name = "id_course", nullable = false, referencedColumnName = "id", updatable = false, insertable = false)
 	private Course course;
-//        
-//       public CatSurvey getCatSurvey() {
-//		return catSurvey;
-//	}
+
+	Integer id_cat_survey, id_course;
+
+	public Integer getId_cat_survey() {
+		return id_cat_survey;
+	}
+
+	public void setId_cat_survey(Integer id_cat_survey) {
+		this.id_cat_survey = id_cat_survey;
+	}
+
+	public Integer getId_course() {
+		return id_course;
+	}
+
+	public void setId_course(Integer id_course) {
+		this.id_course = id_course;
+	}
+
+	@JsonBackReference
+       public CatSurvey getCatSurvey() {
+		return catSurvey;
+	}
 
 	public void setCatSurvey(CatSurvey catSurvey) {
 		this.catSurvey = catSurvey;
 	}
-        
-//        public Course getCourse() {
-//		return course;
-//	}
+
+	@JsonBackReference
+	public Course getCourse() {
+		return course;
+	}
 
 	public void setCourse(Course course) {
 		this.course = course;

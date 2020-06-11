@@ -11,7 +11,6 @@ public class Teacher extends BaseEntity{
 	
 	String matricule;
 
-
 	public Teacher() {
 	}
 
@@ -33,9 +32,18 @@ public class Teacher extends BaseEntity{
 //	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_user", nullable = false, unique = true)
+	@JoinColumn(name="id_user",  referencedColumnName = "id", nullable = false, insertable =false ,updatable  = false)
 	private User user;
 
+	Integer id_user;
+
+	public Integer getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Integer id_user) {
+		this.id_user = id_user;
+	}
 	/*
 	 * @OneToMany(mappedBy = "teacher", cascade = {CascadeType.ALL}) private
 	 * List<Course> courses = new ArrayList<Course>();

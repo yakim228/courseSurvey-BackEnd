@@ -16,13 +16,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Getter 
-@Setter
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@Getter
+//@Setter
 public class Question  extends BaseEntity{	
 	private String title;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	/*
 	 * @OneToMany(mappedBy = "question", cascade = { CascadeType.ALL })
 	 * // @OneToMany(cascade = { CascadeType.ALL }) private List<CatSurveyQuestion>

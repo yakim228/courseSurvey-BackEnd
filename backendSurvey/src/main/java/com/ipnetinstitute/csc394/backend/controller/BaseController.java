@@ -32,6 +32,9 @@ public class BaseController implements InitializingBean {
 	@Autowired
 	private BaseEntityRepository<Student> studentRepo;
 
+	@Autowired
+	private BaseEntityRepository<StudentSurvey> studentSurveyRepo;
+
 
 	@Autowired
 	private BaseEntityRepository<CatSurvey> cat_surveyRepo;
@@ -40,7 +43,10 @@ public class BaseController implements InitializingBean {
 	private BaseEntityRepository<Survey> surveyRepo;
 
 	@Autowired
-	private TeacherEntityRepository teacherResp;
+	private BaseEntityRepository<CatSurveyQuestion> catSurveyQuestionRepo;
+
+	@Autowired
+	private BaseEntityRepository<StudentCourse> studentCourseRepo;
 	
 	@Autowired
 	private BaseEntityRepository<Question> questionRepo;
@@ -52,8 +58,8 @@ public class BaseController implements InitializingBean {
 	@Autowired
 	private BaseEntityRepository<Classe> classeRepo;
 
-	// @Autowired
-	// private BaseEntityRepository<Role> roleRepo;
+//	 @Autowired
+//	 private BaseEntityRepository<Role> roleRepo;
 	
 	@Autowired
 	private BaseEntityRepository<Subject> subjectRepo;
@@ -157,7 +163,7 @@ public class BaseController implements InitializingBean {
 		repos.put("teacher", teacherRepo);
 		repos.put("student", studentRepo);
 		// repos.put("question", questionRepo);
-		// repos.put("role", roleRepo);
+//		 repos.put("role", roleRepo);
 		repos.put("cat_survey", cat_surveyRepo);
 		repos.put("term", termRepo);
 		repos.put("course", courseRepo);
@@ -165,5 +171,10 @@ public class BaseController implements InitializingBean {
 		repos.put("survey", surveyRepo);
 		repos.put("subject", subjectRepo);
 		repos.put("question", questionRepo);
+		repos.put("student_course", studentCourseRepo);
+		repos.put("cat_survey_question", catSurveyQuestionRepo);
+		repos.put("student_survey", studentSurveyRepo);
+
+
 	}
 }

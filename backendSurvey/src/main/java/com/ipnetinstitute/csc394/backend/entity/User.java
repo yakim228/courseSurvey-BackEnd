@@ -108,6 +108,7 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
+	@JsonManagedReference
 	public Set<Role> getRole() {
 		return role;
 	}
