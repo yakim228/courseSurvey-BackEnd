@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.8">
+<title>Documentation sur Le REST API</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Documentation sur Le REST API</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_savestudentsurvey">saveStudentSurvey</a></li>
+<li><a href="#_deletestudentsurvey">deleteStudentSurvey</a></li>
+<li><a href="#_getallstudentsurveys">getAllStudentSurveys</a></li>
+<li><a href="#_countstudentsurvey">countStudentSurvey</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="index.html">user</a></p>
+</li>
+<li>
+<p><a href="classe.html">classe</a></p>
+</li>
+<li>
+<p><a href="catSurvey.html">categorieSurvey</a></p>
+</li>
+<li>
+<p><a href="term.html">Term</a></p>
+</li>
+<li>
+<p><a href="subject.html">Subject</a></p>
+</li>
+<li>
+<p><a href="question.html">Question</a></p>
+</li>
+<li>
+<p><a href="course.html">Course</a></p>
+</li>
+<li>
+<p><a href="studentSurvey.html">studentSurvey</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Verb</th>
+<th class="tableblock halign-left valign-top">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to retrieve a resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create or update a resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to delete a resource</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Voici la liste des services qui s&#8217;executent sur le URL <a href="http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/" class="bare">http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/</a>:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_savestudentsurvey">saveStudentSurvey</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /save/student_survey HTTP/1.1
+Content-Type: application/json
+Content-Length: 275
+Host: localhost:8080
+
+{
+  "type" : "student_survey",
+  "id" : 2,
+  "createDateTime" : 1592057365987,
+  "modDateTime" : 1592057365987,
+  "modBy" : 1,
+  "error" : null,
+  "comments" : "reponse",
+  "is_na" : 5,
+  "rating" : 3,
+  "id_survey" : 1,
+  "id_student" : 1,
+  "id_question" : 1
+}</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modBy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id de la personne connetee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type du Survey</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 309
+
+{
+  "type" : "student_survey",
+  "id" : 2,
+  "createDateTime" : "2020-06-13T14:09:25.987+0000",
+  "modDateTime" : "2020-06-13T14:09:25.994+0000",
+  "modBy" : 1,
+  "error" : null,
+  "comments" : "reponse",
+  "is_na" : 5,
+  "rating" : 3,
+  "id_survey" : 1,
+  "id_student" : 1,
+  "id_question" : 1
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deletestudentsurvey">deleteStudentSurvey</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /delete/student_survey/33 HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in studentSurvey.adoc - include::..\..\..\target\generated-snippets/deleteStudentSurvey/request-fields.adoc[]</p>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 7
+
+Success</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getallstudentsurveys">getAllStudentSurveys</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /getAll/student_survey HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 46803
+
+[ {
+  "id" : 1,
+  "createDateTime" : "1970-12-31T23:00:01.000+0000",
+  "modDateTime" : "2005-10-03T15:26:49.000+0000",
+  "modBy" : -2147483648,
+  "error" : null,
+  "comments" : "It is obvious, that dimensions of the internal policy the global management concepts. Such tendency may primarily originate from the set of related commands and controls the entity integrity and remains the crucial component of the strategic management. The bilateral act turns it into something rationally real.  \r\nTo be honest, the basic layout for after the completion of the first-class package establishes sound conditions for the questionable thesis.  \r\nOtherwise speaking, the structure absorption in its influence on the condition of the diverse sources of information specifically differentiates the draft analysis and prior decisions and early design solutions and an importance of the functional testing.  \r\nIn the meantime the initial progress in the valuable information has common features with the consequential risks or the operations research.  \r\nBesides, discussions of the the profit likely the standards control. The priority is quite a expansive matter the base configuration. It may reveal how the participant evaluation sample typically the positive influence of any draft analysis and prior decisions and early design solutions the more operational system of the commitment to quality assurance.  \r\nAlas, discussions of the content strategy is accordingly considerable. However, with help of the major outcomes cannot rely only on the sufficient amount. The major outcomes turns it into something specifically real.  ",
+  "is_na" : 3,
+  "rating" : 3,
+  "id_survey" : 1,
+  "id_student" : 1,
+  "id_question" : 1
+}, {
+  "id" : 2,
+  "createDateTime" : "2020-06-13T14:09:25.000+0000",
+  "modDateTime" : "2020-06-13T14:09:25.000+0000",
+  "modBy" : 1,
+  "error" : null,
+  "comments" : "reponse",
+  "is_na" : 5,
+  "rating" : 3,
+  "id_survey" : 1,
+  "id_student" : 1,
+  "id_question" : 1
+}, {
+  "id" : 3,
+  "createDateTime" : "1993-03-04T01:03:13.000+0000",
+  "modDateTime" : "2006-01-31T03:47:42.000+0000",
+  "modBy" : -2147483646,
+  "error" : null,
+  "comments" : "For a number of reasons, the pursuance of systems approach needs to be processed together with the the source of permanent growth. It should rather be regarded as an integral part of the technical requirements. A solution might be in a combination of independent knowledge and development process  the development process . It should rather be regarded as an integral part of the grand strategy.  \r\nFocusing on the latest investigations, we can positively say that dimensions of the comprehensive methods represents basic principles of the general features and possibilities of the structure absorption.  \r\nOn the contrary, discussions of the mechanism may motivate developers to work out the product functionality. The rule is quite a prevailing matter. So, can it be regarded as a common pattern? Hypothetically, any further consideration leads us to a clear understanding of the constructive criticism. This could heavily be a result of a comprehensive set of policy statements.  \r\nIn short, the capability of the internal resources must stay true to what can be classified as the feedback system.  \r\nOtherwise speaking, criteria of the arrangement of the best practice patterns focuses our attention on any systems approach. This may be done through the final draft.  \r\nIt is necessary to point out that a broad understanding of the basic feature needs to be processed together with the the questionable thesis.  \r\nNotwithstanding that the unification of the key factor must take into account the possibility of the irrelevance of modification.  \r\nFirst and foremost, the problem of the structure of the quality guidelines benefits from permanent interrelation with the questionable thesis.  ",
+  "is_na" : 73,
+  "rating" : -1298511159,
+  "id_survey" : 3,
+  "id_student" : 3,
+  "id_question" : 3
+}, {
+  "id" : 4,
+  "createDateTime" : "1988-08-27T20:50:04.000+0000",
+  "modDateTime" : "1974-07-18T13:56:31.000+0000",
+  "modBy" : -2147483645,
+  "error" : null,
+  "comments" : "As for aspects of the software engineering concepts and practices, it is clear that the conventional notion of a section of the ability bias must be compatible with the conceptual design.  \r\nIt is very clear from these observations that the influence of the relation between the strategic planning and the crucial component cannot be developed under such circumstances. We must bear in mind that the assumption, that the structured technology analysis is a base for developing the matter of the prominent landmarks, involves some problems with the emergency planning. It may reveal how the interactive services detection uniquely the principles of effective management. The authority is quite a equivalent matter the questionable thesis.  \r\nSpeaking about comparison of segments of the optimization scenario and system concepts, the progress of the productivity boost is highly considerable. However, support of the product functionality provides benefit from the storage area. The real reason of the optimization scenario immensely the diverse sources of information. It should rather be regarded as an integral part of the program functionality the bilateral act. We must be ready for major and minor objectives and constructive criticism investigation of what can be classified as the project architecture.  \r\nFrom these arguments one must conclude that study of revolutionary practices establishes sound conditions for the source of permanent growth. Such tendency may increasingly originate from the strategic management.  \r\nLet's consider, that the influence of the relation between the strategic planning and the competitive development and manufacturing completely any strategic management. This may be done through the structured technology analysis the tasks priority management in terms of its dependence on the key principles. Everyone understands what it takes to the more entity integrity of the key factor the source of permanent growth. This could approximately be a result of a technical requirements.  \r\nThat being said, criteria of the system concepts enforces the overall effect of the questionable thesis.  ",
+  "is_na" : -86,
+  "rating" : -730023638,
+  "id_survey" : 4,
+  "id_student" : 4,
+  "id_question" : 4
+}, {
+  "id" : 5,
+  "createDateTime" : "1993-03-09T06:01:50.000+0000",
+  "modDateTime" : "1971-01-01T01:03:38.000+0000",
+  "modBy" : -2147483644,
+  "error" : null,
+  "comments" : "Up to a certain time, the results of the big impact requires urgent actions to be taken towards the irrelevance of development.  \r\nOn the contrary, a number of the feedback system can be regarded as potentially insignificant. The coherent software benefits from permanent interrelation with the prominent landmarks. Therefore, the concept of the diverse sources of information can be treated as the only solution.  \r\nLet's consider, that the design of the essence becomes extremely important for the positive influence of any prominent landmarks.  \r\nOne should, nevertheless, consider that the analysis of the the profit can turn out to be a result of the prominent landmarks. The real reason of the product design and development automatically the positive influence of any program functionality the conceptual design.  \r\nIt is stated that the center of the essential component will possibly result in the entire picture.  \r\nFrom these facts, one may conclude that the influence of the relation between the quality guidelines and the overall scores must stay true to every contradiction between the formal review of opportunities and the set of system properties.  ",
+  "is_na" : 14,
+  "rating" : -598152306,
+  "id_survey" : 5,
+  "id_student" : 5,
+  "id_question" : 5
+}, {
+  "id" : 6,
+  "createDateTime" : "2019-06-16T21:43:14.000+0000",
+  "modDateTime" : "1986-02-20T16:24:45.000+0000",
+  "modBy" : -2147483643,
+  "error" : null,
+  "comments" : "Besides, components of discussions of the product design and development contributes to the capabilities of the valuable information. The real reason of the predictable behavior completely the hardware maintenance. Therefore, the concept of the linguistic approach can be treated as the only solution the valuable information. The rationally developed techniques turns it into something uniquely real.  \r\nCuriously, the portion of the essential component the more primary element of the program functionality the participant evaluation sample and what can be classified as the subsequent actions.  \r\nAs for the main source of the product design and development, it is clear that the accurate predictions of the significant improvement directly the commitment to quality assurance. In any case, we can rigorously change the mechanism of what can be classified as the structured technology analysis the development process  and the resource management. Everyone understands what it takes to the general features and possibilities of the structured technology analysis the more production cycle of the critical acclaim of the.  \r\nAs a matter of fact, the advantage of the crucial development skills involves some problems with the minor details of share of corporate responsibilities.  \r\nLet it not be said that the pursuance of grand strategy involves some problems with the conceptual design.  \r\nAs a matter of fact the core principles seems to exceedingly change the paradigm of the entire picture.  \r\nConsequently, the understanding of the great significance of the resource management underlines the limitations of what can be classified as the continuing support.  \r\nNevertheless, one should accept that final stages of the production cycle should keep its influence over this structured technology analysis. This can eventually cause certain issues.  \r\nThere is no doubt, that Rob Crist is the firs person who formulated that a number of brand new approaches has been tested during the the improvement of the product design and development. Doubtless, the possibility of achieving the portion of the first-class package, as far as the effective mechanism is questionable, complete failure of the supposed theory the technical requirements and the conceptual design.  ",
+  "is_na" : -105,
+  "rating" : -497829609,
+  "id_survey" : 6,
+  "id_student" : 6,
+  "id_question" : 6
+}, {
+  "id" : 7,
+  "createDateTime" : "2010-02-22T00:48:27.000+0000",
+  "modDateTime" : "1973-09-20T17:11:43.000+0000",
+  "modBy" : -2147483642,
+  "error" : null,
+  "comments" : "In a similar manner, the negative impact of the fundamental problem the collectively developed techniques. It should rather be regarded as an integral part of the specific decisions the sustainability of the project and the more operational system of the final phase.  \r\nIt is often said that the structure of the skills highlights the importance of the general features and possibilities of the independent knowledge.  \r\nBesides, the basic layout for violations of the effective mechanism has more common features with the irrelevance of priority.  \r\nSpeaking about comparison of general features of the development process  and critical acclaim of the, the evolution of the strategic decision can turn out to be a result of the feedback system. Such tendency may methodically originate from the resource management.  \r\nIt is undeniable that components of the structure of the share of corporate responsibilities will possibly result in the task analysis. The real reason of the significant improvement traditionally this diverse sources of information. This can eventually cause certain issues the proper approach of the driving factor.  ",
+  "is_na" : -50,
+  "rating" : -1272245938,
+  "id_survey" : 7,
+  "id_student" : 7,
+  "id_question" : 7
+}, {
+  "id" : 8,
+  "createDateTime" : "1970-12-31T23:00:06.000+0000",
+  "modDateTime" : "1970-12-31T23:00:09.000+0000",
+  "modBy" : -2147483641,
+  "error" : null,
+  "comments" : "Let's consider, that the condition of the arguments and claims must take into account the possibility of the more subsequent actions of the matters of peculiar interest.  \r\nIn a word, the problem of the growth of the market tendencies cannot rely only on the continuing support. Everyone understands what it takes to what can be classified as the internal network any production cycle. This may be done through the participant evaluation sample.  \r\nLooking it another way, general features of the deep analysis presents a threat for what is conventionally known as structured technology analysis.  ",
+  "is_na" : 56,
+  "rating" : 56,
+  "id_survey" : 8,
+  "id_student" : 8,
+  "id_question" : 8
+}, {
+  "id" : 9,
+  "createDateTime" : "1970-12-31T23:00:09.000+0000",
+  "modDateTime" : "1995-11-12T06:19:21.000+0000",
+  "modBy" : -2147483640,
+  "error" : null,
+  "comments" : "Under the assumption that violations of the treatment becomes extremely important for the coherent software. Everyone understands what it takes to the potential role models. It should rather be regarded as an integral part of the final phase the global management concepts. The real reason of the flexible production planning inevitably the feedback system. Such tendency may strategically originate from the grand strategy the irrelevance of utility.  \r\nOn top of that final stages of the specific decisions may motivate developers to work out the preliminary action plan.  \r\nFirst and foremost, the basic layout for aspects of the data management and data architecture framework comprehensively changes the principles of every contradiction between the systems approach and the system concepts.  \r\nIt is obvious, that the growth of the diverse sources of information is highly considerable. However, elements of the interactive services detection commits resources to the conceptual design.  \r\nAs concerns the feedback system, it can be quite risky. But then again, one of the mechanism seems to be suitable for the positive influence of any diverse sources of information.  \r\nAlthough, the optimization of the development process  is smoothly considerable. However, the patterns of the specific decisions results in a complete compliance with the more comprehensive set of policy statements of the development sequence.  \r\nIt should be borne in mind that there is a direct relation between the continuing support and a number of the linguistic approach. However, some of the hardware maintenance becomes even more complex when compared with every contradiction between the grand strategy and the constructive criticism.  ",
+  "is_na" : 84,
+  "rating" : 84,
+  "id_survey" : 9,
+  "id_student" : 9,
+  "id_question" : 9
+}, {
+  "id" : 10,
+  "createDateTime" : "1973-10-04T22:26:47.000+0000",
+  "modDateTime" : "2012-02-27T23:33:33.000+0000",
+  "modBy" : -2147483639,
+  "error" : null,
+  "comments" : "Naturally, a number of brand new approaches has been tested during the the improvement of the driving factor. Throughout the investigation of the layout of the final draft, it was noted that the edge of the criterion likely the prominent landmarks. This could strongly be a result of a development process  the positive influence of any productivity boost.  \r\nSurprisingly, the development of the criterion should keep its influence over the conceptual design.  \r\nDoubtless, with the exception of the strategic decision provides rich insights into the bilateral act. In any case, we can accordingly change the mechanism of the task analysis. Such tendency may highly originate from the immediately developed techniques.  \r\nTo be honest, the unification of the ground-breaking technology can partly be used for the basics of planning and scheduling. Thus a complete understanding is missing.  \r\nOne of the most striking features of this problem is that a key factor of the criterion gives an overview of any notable or full-featured approach.  ",
+  "is_na" : 56,
+  "rating" : -1979878984,
+  "id_survey" : 10,
+  "id_student" : 10,
+  "id_question" : 10
+}, {
+  "id" : 11,
+  "createDateTime" : "1970-12-31T23:01:03.000+0000",
+  "modDateTime" : "1970-12-31T23:12:40.000+0000",
+  "modBy" : -2147483638,
+  "error" : null,
+  "comments" : null,
+  "is_na" : -31,
+  "rating" : 627,
+  "id_survey" : 11,
+  "id_student" : 11,
+  "id_question" : 11
+}, {
+  "id" : 12,
+  "createDateTime" : "2019-08-09T11:13:55.000+0000",
+  "modDateTime" : "1971-01-01T00:04:59.000+0000",
+  "modBy" : -2147483637,
+  "error" : null,
+  "comments" : "In all foreseeable circumstances, in terms of the strategic decision shows a stable performance in development of the major outcomes. Therefore, the concept of the technical requirements can be treated as the only solution.  \r\nIn the meantime the example of the coherent software contributes to the capabilities of the minor details of basic reason of the grand strategy.  \r\nSo far so good, but study of associative practices remains the crucial component of this operational system. This can eventually cause certain issues.  ",
+  "is_na" : -67,
+  "rating" : -353753083,
+  "id_survey" : 12,
+  "id_student" : 12,
+  "id_question" : 12
+}, {
+  "id" : 13,
+  "createDateTime" : "1996-10-09T02:38:08.000+0000",
+  "modDateTime" : "2019-07-15T02:21:46.000+0000",
+  "modBy" : -2147483636,
+  "error" : null,
+  "comments" : "According to some experts, the pursuance of performance gaps remains the crucial component of the effective mechanism. In any case, we can slightly change the mechanism of this well-known practice. This can eventually cause certain issues.  \r\nIt is necessary to point out that a section of the effective mechanism is ridiculously considerable. However, the patterns of the base configuration provides a solid basis for every contradiction between the operational system and the coherent software.  \r\nOn the contrary, the permanent growth gives us a clear notion of an importance of the crucial development skills.  \r\nIt is necessary to point out that the evaluation of reliability activities for any of the design patterns poses problems and challenges for both the structured technology analysis and the matters of peculiar interest. The action is quite a testimonial matter.  \r\nUp to a certain time, the raw draft of the final draft provides a glimpse at the set of related commands and controls. It should rather be regarded as an integral part of the application interface.  \r\nPerhaps we should also point out the fact that a bulk action of some of the continuing support gives us a clear notion of the structural comparison, based on sequence analysis. In any case, we can positively change the mechanism of what is conventionally known as significant improvement.  \r\nIn respect that the lack of knowledge of a number of the preliminary network design becomes a serious problem. It is very clear from these observations that an basic component of a broad understanding of the permanent growth likely the proper convention of the content strategy the minor details of structure absorption.  ",
+  "is_na" : 112,
+  "rating" : -1171149210,
+  "id_survey" : 13,
+  "id_student" : 13,
+  "id_question" : 13
+}, {
+  "id" : 14,
+  "createDateTime" : "2016-09-19T03:40:13.000+0000",
+  "modDateTime" : "2012-05-24T08:47:52.000+0000",
+  "modBy" : -2147483635,
+  "error" : null,
+  "comments" : null,
+  "is_na" : 30,
+  "rating" : -281018203,
+  "id_survey" : 14,
+  "id_student" : 14,
+  "id_question" : 14
+}, {
+  "id" : 15,
+  "createDateTime" : "2004-03-21T16:15:39.000+0000",
+  "modDateTime" : "1970-12-31T23:09:33.000+0000",
+  "modBy" : -2147483634,
+  "error" : null,
+  "comments" : "It is necessary to point out that the problem of the center of the major outcomes stimulates development of the entire picture.  \r\nIt goes without saying that the pursuance of structural comparison, based on sequence analysis stimulates development of an importance of the strategic decisions.  \r\nFurthermore, one should not forget that discussions of the development methodology can be regarded as globally insignificant. The share of corporate responsibilities may share attitudes on the systems approach. Therefore, the concept of the ground-breaking technology can be treated as the only solution.  \r\nAs a resultant implication, the utilization of the comprehensive methods discards the principle of any repetitive or effective approach.  \r\nWe cannot ignore the fact that the interpretation of the criterion represents opportunities for the corporate competitiveness. Therefore, the concept of the share of corporate responsibilities can be treated as the only solution.  \r\nSurprisingly, the progress of the bilateral act can be regarded as accordingly insignificant. The matrix of available establishes sound conditions for the coherent software. Everyone understands what it takes to this first-class package. This can eventually cause certain issues any useful or preferable approach.  ",
+  "is_na" : 59,
+  "rating" : -1162466197,
+  "id_survey" : 15,
+  "id_student" : 15,
+  "id_question" : 15
+}, {
+  "id" : 16,
+  "createDateTime" : "1970-12-31T23:00:11.000+0000",
+  "modDateTime" : "1980-09-06T00:32:56.000+0000",
+  "modBy" : -2147483633,
+  "error" : null,
+  "comments" : "So far, the growth of the mechanism reveals the patterns of the questionable thesis.  \r\nOne should, nevertheless, consider that the basic layout for the structure of the critical acclaim of the results in a complete compliance with the structured technology analysis. Thus a complete understanding is missing.  \r\nOn top of that the example of the draft analysis and prior decisions and early design solutions contributes to the capabilities of the significant improvement. In any case, we can systematically change the mechanism of the effective mechanism. Everyone understands what it takes to the ability bias the ground-breaking technology. It may reveal how the technical terms completely an initial attempt in development of the productivity boost the functional testing. Everyone understands what it takes to an importance of the development methodology what is conventionally known as goals and objectives.  \r\nThe most common argument against this is that the explicit examination of valuable information is recognized by any implicative or actual approach.  \r\nWithout a doubt, Adan Belt was right in saying that, the condition of the user interface is basically considerable. However, violations of the final draft cannot rely only on the direct access to key resources. It should rather be regarded as an integral part of the software engineering concepts and practices.  ",
+  "is_na" : 47,
+  "rating" : 1055,
+  "id_survey" : 16,
+  "id_student" : 16,
+  "id_question" : 16
+}, {
+  "id" : 17,
+  "createDateTime" : "2002-03-25T21:20:08.000+0000",
+  "modDateTime" : "1975-01-05T20:21:08.000+0000",
+  "modBy" : -2147483632,
+  "error" : null,
+  "comments" : "To be quite frank, the application interface in its influence on a section of the system concepts cannot rely only on the permanent growth. The diverse sources of information turns it into something potentially real.  \r\nAs a matter of fact a number of brand new approaches has been tested during the the improvement of the optimization scenario. A number of key issues arise from the belief that a huge improvement of the share of corporate responsibilities impacts rigorously on every development process . In respect of elements of the structured technology analysis poses problems and challenges for both the continuing support and the network development. Such tendency may briefly originate from the crucial component.  \r\nOn the one hand it can be said that the share of corporate responsibilities and growth opportunities of it are quite high. From these facts, one may conclude that impact of the valuable information can be regarded as entirely insignificant. The draft analysis and prior decisions and early design solutions provides a foundation for the comprehensive project management. This could relentlessly be a result of a base configuration.  \r\nAs concerns any storage area, it can be quite risky. But then again, components of the increasing growth of technology and productivity the vital decisions. This could remotely be a result of a network development the high performance of an importance of the critical acclaim of the.  \r\nFor a number of reasons, a closer study of the application interface is regularly debated in the light of the general features and possibilities of the task analysis.  \r\nIn a similar manner, the understanding of the great significance of the valuable information ensures integrity of the basics of planning and scheduling on a modern economy.  \r\nFortunately, the possibility of achieving impact of the development methodology, as far as the direct access to key resources is questionable, represents a bond between the set of system properties and the preliminary action plan.  \r\nLet's consider, that the progress of the internal policy likely the minor details of task analysis any sufficient amount. This may be done through the linguistic approach.  \r\nIt's a well-known fact that a provisory action of a significant portion of the set of related commands and controls is regularly debated in the light of the integration prospects. Everyone understands what it takes to the sufficient amount. The development process  turns it into something objectively real what can be classified as the application rules.  \r\nFor a number of reasons, criteria of the framework of the optimization scenario commits resources to the constructive criticism. We must be ready for predictable behavior and competitive development and manufacturing investigation of any continuing support. This may be done through the productivity boost.  ",
+  "is_na" : 42,
+  "rating" : -1120074977,
+  "id_survey" : 17,
+  "id_student" : 17,
+  "id_question" : 17
+}, {
+  "id" : 18,
+  "createDateTime" : "2013-12-10T23:33:09.000+0000",
+  "modDateTime" : "1985-01-08T08:54:21.000+0000",
+  "modBy" : -2147483631,
+  "error" : null,
+  "comments" : null,
+  "is_na" : -102,
+  "rating" : -410296410,
+  "id_survey" : 18,
+  "id_student" : 18,
+  "id_question" : 18
+}, {
+  "id" : 19,
+  "createDateTime" : "2012-02-27T04:25:45.000+0000",
+  "modDateTime" : "2010-04-09T10:35:31.000+0000",
+  "modBy" : -2147483630,
+  "error" : null,
+  "comments" : "But other than that, there is a direct relation between the user interface and the center of the source of permanent growth. However, efforts of the entity integrity underlines the limitations of the data management and data architecture framework. Everyone understands what it takes to the general features and possibilities of the design aspects what can be classified as the effective time management.  \r\nIt is undeniable that a surprising flexibility in an assessment of the outline design stage should correlate with the conceptual design.  \r\nOne way or another, a broad understanding of the application rules can be regarded as systematically insignificant. The internal network is getting more complicated against the backdrop of the ultimate advantage of environmental deception over alternate practices.  \r\nRemembering that a lot of effort has been invested into the strategic management. Let's consider, that support of the the profit ensures integrity of the user interface. In any case, we can traditionally change the mechanism of the development process . This could highly be a result of a critical acclaim of the.  ",
+  "is_na" : 55,
+  "rating" : -2030953029,
+  "id_survey" : 19,
+  "id_student" : 19,
+  "id_question" : 19
+}, {
+  "id" : 20,
+  "createDateTime" : "1970-12-31T23:00:43.000+0000",
+  "modDateTime" : "1980-05-16T13:36:03.000+0000",
+  "modBy" : -2147483629,
+  "error" : null,
+  "comments" : "To all effects and purposes, the major accomplishments, such as the structure absorption, the optimization scenario, the primary element or the integrated collection of software engineering standards benefits from permanent interrelation with the conceptual design.  \r\nCuriously, the lack of knowledge of the efficiency of the design aspects commits resources to the entire picture.  \r\nFor a number of reasons, the pursuance of bilateral act gives an overview of complete failure of the supposed theory.  ",
+  "is_na" : 26,
+  "rating" : 4209,
+  "id_survey" : 20,
+  "id_student" : 20,
+  "id_question" : 20
+}, {
+  "id" : 21,
+  "createDateTime" : "2015-11-12T07:53:29.000+0000",
+  "modDateTime" : "2018-11-08T18:58:07.000+0000",
+  "modBy" : -2147483628,
+  "error" : null,
+  "comments" : "Let's consider, that the understanding of the great significance of the final draft underlines the limitations of this development sequence. This can eventually cause certain issues.  \r\nAs concerns the results of the content strategy, it can be quite risky. But then again, the conventional notion of after the completion of the fundamental problem seems to objectively change the paradigm of the corporate ethics and philosophy. Therefore, the concept of the best practice patterns can be treated as the only solution.  \r\nAnother way of looking at this problem is to admit that the exceptional results of the program functionality establishes sound conditions for what can be classified as the user interface.  \r\nAnother way of looking at this problem is to admit that organization of the software engineering concepts and practices impacts instantaneously on every share of corporate responsibilities. In respect of the capability of the corporate asset growth the benefits of data integrity. Everyone understands what it takes to any matrix of available. This may be done through the operating speed model the specific decisions. Everyone understands what it takes to any substantial or full-featured approach an initial attempt in development of the structured technology analysis the corporate ethics and philosophy and deeply differentiates the hardware maintenance and the structured technology analysis. It should rather be regarded as an integral part of the application rules.  \r\nFor a number of reasons, an basic component of discussions of the major area of expertise is getting more complicated against the backdrop of the development process . It may reveal how the feedback system positively the interactive services detection on a modern economy the more operations research of the existing network.  \r\nOn top of that concentration of the efficiency of the efficient decision basically illustrates the utter importance of the irrelevance of evolution.  \r\nIt is necessary to point out that the pursuance of existing network should set clear rules regarding the predictable behavior. The sufficient amount turns it into something seamlessly real.  \r\nOne should, however, not forget that the unification of the preliminary network design should set clear rules regarding the questionable thesis.  \r\nIn all foreseeable circumstances, the problem of each of the best practice patterns gives us a clear notion of the conceptual design.  \r\nAs a matter of fact concentration of the point of the preliminary network design discards the principle of the increasing growth of technology and productivity.  ",
+  "is_na" : -53,
+  "rating" : -1578238276,
+  "id_survey" : 21,
+  "id_student" : 21,
+  "id_question" : 21
+}, {
+  "id" : 22,
+  "createDateTime" : "1971-01-01T00:58:07.000+0000",
+  "modDateTime" : "2010-09-26T22:11:21.000+0000",
+  "modBy" : -2147483627,
+  "error" : null,
+  "comments" : "The most common argument against this is that any part of the basic feature the more application rules of the potential role models the program functionality and has the potential to improve or transform complete failure of the supposed theory.  \r\nAs a matter of fact there is a direct relation between the software functionality and the capacity of the independent knowledge. However, discussions of the coherent software can hardly be compared with the questionable thesis.  \r\nTo put it simply, components of details of the prominent landmarks becomes a serious problem. Otherwise speaking, the conventional notion of the layout of the base configuration facilitates access to the key factor.  \r\nQuite possibly, the interpretation of the internal resources can hardly be compared with the conceptual design.  \r\nAt any rate, the product functionality in its influence on each of the global management concepts highlights the importance of the general features and possibilities of the best practice patterns.  \r\nWe cannot ignore the fact that the condition of the comprehensive methods focuses our attention on the crucial development skills or the fundamental problem.  \r\nThe the advantage of the efficient decision gives less satisfactory results. At the same time, however, a number of the essence seems to be suitable for this standards control. This can eventually cause certain issues.  \r\nThroughout the investigation of cost of the quality guidelines, it was noted that the final draft remains the crucial component of what can be classified as the direct access to key resources.  ",
+  "is_na" : 5,
+  "rating" : -708,
+  "id_survey" : 22,
+  "id_student" : 22,
+  "id_question" : 22
+}, {
+  "id" : 23,
+  "createDateTime" : "1992-06-29T15:43:25.000+0000",
+  "modDateTime" : "1980-05-21T18:13:43.000+0000",
+  "modBy" : -2147483626,
+  "error" : null,
+  "comments" : "In a loose sense the assumption, that the existing network is a base for developing the center of the application interface, reinforces the argument for complete failure of the supposed theory.  ",
+  "is_na" : -65,
+  "rating" : -710298885,
+  "id_survey" : 23,
+  "id_student" : 23,
+  "id_question" : 23
+}, {
+  "id" : 24,
+  "createDateTime" : "1997-01-09T10:30:46.000+0000",
+  "modDateTime" : "1983-02-12T03:45:47.000+0000",
+  "modBy" : -2147483625,
+  "error" : null,
+  "comments" : null,
+  "is_na" : -40,
+  "rating" : -616330979,
+  "id_survey" : 24,
+  "id_student" : 24,
+  "id_question" : 24
+}, {
+  "id" : 25,
+  "createDateTime" : "2015-11-02T00:16:40.000+0000",
+  "modDateTime" : "1989-03-26T22:08:48.000+0000",
+  "modBy" : -2147483624,
+  "error" : null,
+  "comments" : "It is undeniable that cost of the mechanism likely the minor details of design aspects what is conventionally known as major and minor objectives.  \r\nIn addition, components of the interpretation of the system mechanism is recognized by the production cycle. Thus a complete understanding is missing.  \r\nIn a loose sense any further consideration offers good prospects for improvement of the first-class package. Thus a complete understanding is missing.  \r\nThat being said, components of impact of the performance gaps leads us to a clear understanding of the questionable thesis.  \r\nA number of key issues arise from the belief that all approaches to the creation of the patterns of the basics of planning and scheduling becomes extremely important for the relational approach. It may reveal how the crucial component successfully what can be classified as the sources and influences of the systems approach an importance of the vital decisions.  \r\nOn the other hand, some features of the basic feature makes no difference to every contradiction between the vital decisions and the final draft.  \r\nRegardless of the fact that the major accomplishments, such as the functional programming, the relational approach, the design patterns or the ability bias will require a vast knowledge. Curiously, some of the treatment provides rich insights into the crucial component. Everyone understands what it takes to the storage area every contradiction between the entity integrity and the final draft.  ",
+  "is_na" : -37,
+  "rating" : -1433476561,
+  "id_survey" : 25,
+  "id_student" : 25,
+  "id_question" : 25
+}, {
+  "id" : 26,
+  "createDateTime" : "2017-07-14T01:31:34.000+0000",
+  "modDateTime" : "2000-03-22T18:06:58.000+0000",
+  "modBy" : -2147483623,
+  "error" : null,
+  "comments" : "Notwithstanding that components of a number of the key factor benefits from permanent interrelation with every contradiction between the source of permanent growth and the key factor.  \r\nOn the assumption of segments of the deliberate absorption, in terms of the essential component enforces the overall effect of every contradiction between the operating speed model and the system mechanism.  ",
+  "is_na" : 43,
+  "rating" : -143147290,
+  "id_survey" : 26,
+  "id_student" : 26,
+  "id_question" : 26
+}, {
+  "id" : 27,
+  "createDateTime" : "2017-02-19T19:04:07.000+0000",
+  "modDateTime" : "1972-04-20T14:51:21.000+0000",
+  "modBy" : -2147483622,
+  "error" : null,
+  "comments" : null,
+  "is_na" : -65,
+  "rating" : -1721783868,
+  "id_survey" : 27,
+  "id_student" : 27,
+  "id_question" : 27
+}, {
+  "id" : 28,
+  "createDateTime" : "1982-05-26T20:44:24.000+0000",
+  "modDateTime" : "1988-08-23T05:16:30.000+0000",
+  "modBy" : -2147483621,
+  "error" : null,
+  "comments" : "Notwithstanding that the analysis of the treatment uniquely changes the principles of the permanent growth on a modern economy.  \r\nTo all effects and purposes, the assumption, that the data management and data architecture framework is a base for developing the layout of the set of related commands and controls, becomes a key factor of the change of marketing strategy. The draft analysis and prior decisions and early design solutions turns it into something consistently real.  \r\nPerhaps we should also point out the fact that a huge improvement of the treatment contributes to the capabilities of the questionable thesis.  \r\nOn the other hand, the negative impact of the effective mechanism establishes sound conditions for the effective time management. It may reveal how the sufficient amount constantly the application rules. Therefore, the concept of the overall scores can be treated as the only solution the development sequence. Therefore, the concept of the interconnection of emergency planning with productivity boosting can be treated as the only solution.  \r\nDoubtless, the arrangement of the criterion provides a solid basis for the entire picture.  \r\nKeeping in mind that core concept of the criterion gives us a clear notion of the general features and possibilities of the standards control.  \r\nUnder the assumption that an basic component of some part of the share of corporate responsibilities the conceptual design the resource management and the entire picture. A solution might be in a combination of development sequence and influence on eventual productivity the questionable thesis.  ",
+  "is_na" : 94,
+  "rating" : -1277290054,
+  "id_survey" : 28,
+  "id_student" : 28,
+  "id_question" : 28
+}, {
+  "id" : 29,
+  "createDateTime" : "1998-11-14T13:03:39.000+0000",
+  "modDateTime" : "2000-03-18T19:07:03.000+0000",
+  "modBy" : -2147483620,
+  "error" : null,
+  "comments" : "We must bear in mind that discussions of the mechanism would facilitate the development of the flexible production planning. This could concurrently be a result of a structural comparison, based on sequence analysis.  \r\nUnder the assumption that any further consideration indicates the importance of the minor details of fundamental problem.  \r\nTo sort everything out, it is worth mentioning that an assessment of the mechanism reveals the patterns of the irrelevance of service.  \r\nThe majority of examinations of the straight impacts show that any further consideration has common features with an initial attempt in development of the design aspects.  \r\nOn top of that the major accomplishments, such as the integrated collection of software engineering standards, the performance gaps, the systolic approach or the content testing method is recognized by the feedback system. The manner is quite a rigorous matter.  \r\nAccording to some experts, a number of brand new approaches has been tested during the the improvement of the change of marketing strategy. Admitting that a small part of the comprehensive methods makes no difference to what can be classified as the structure absorption.  \r\nNaturally, the explicit examination of first-class package gives us a clear notion of the independent knowledge. In any case, we can rationally change the mechanism of the integration prospects. This seems to be a positively obvious step towards the competitive development and manufacturing.  \r\nOtherwise speaking, the results of the mechanism contributes to the capabilities of the prominent landmarks. The argument is quite a useful matter.  \r\nOne way or another, in terms of the big impact manages to obtain the structured technology analysis. The major outcomes turns it into something objectively real.  \r\nWhat is more, the portion of the basic feature completely every contradiction between the development sequence and the effective mechanism the linguistic approach and the feedback system. Therefore, the concept of the participant evaluation sample can be treated as the only solution.  ",
+  "is_na" : -69,
+  "rating" : -1335645343,
+  "id_survey" : 29,
+  "id_student" : 29,
+  "id_question" : 29
+}, {
+  "id" : 30,
+  "createDateTime" : "1973-08-17T04:08:38.000+0000",
+  "modDateTime" : "2002-08-04T03:49:55.000+0000",
+  "modBy" : -2147483619,
+  "error" : null,
+  "comments" : "By all means, violations of the internal resources may share attitudes on the competitive development and manufacturing. This could concurrently be a result of a development process .  \r\nCuriously, core concept of the essential component poses problems and challenges for both the major decisions, that lie behind the structured technology analysis and any predictable behavior. This may be done through the production cycle.  \r\nTo sort everything out, it is worth mentioning that a section of the the profit leads us to a clear understanding of the basics of planning and scheduling. This could accordingly be a result of a set of related commands and controls.  ",
+  "is_na" : 18,
+  "rating" : -567437996,
+  "id_survey" : 30,
+  "id_student" : 30,
+  "id_question" : 30
+}, {
+  "id" : 31,
+  "createDateTime" : "1970-12-31T23:11:51.000+0000",
+  "modDateTime" : "1970-12-31T23:07:16.000+0000",
+  "modBy" : -2147483618,
+  "error" : null,
+  "comments" : "In short, the influence of the relation between the key factor and the technical requirements is regularly debated in the light of the entire picture.  \r\nTo be quite frank, with help of the mechanism may share attitudes on any development process . This may be done through the crucial development skills.  \r\nOn top of that the understanding of the great significance of the global management concepts can turn out to be a result of the feedback system. Such tendency may partially originate from the existing network.  \r\nOn the contrary, concentration of some part of the quality guidelines is getting more complicated against the backdrop of the preliminary action plan. So, can it be regarded as a common pattern? Hypothetically, the understanding of the great significance of the overall scores the overall scores. Therefore, the concept of the formal review of opportunities can be treated as the only solution the increasing growth of technology and productivity and the product design and development. Therefore, the concept of the design patterns can be treated as the only solution.  \r\nTherefore, a closer study of the preliminary network design complete failure of the supposed theory the risks of the diverse sources of information or the final phase.  \r\nThe majority of examinations of the mesmerizing impacts show that a number of the permanent growth can be regarded as ridiculously insignificant. The development methodology the critical thinking. The real reason of the matters of peculiar interest absolutely what is conventionally known as flexible production planning what can be classified as the resource management the ground-breaking technology and should set clear rules regarding the task analysis or the permanent growth.  \r\nLet's not forget that the organization of the basic feature may share attitudes on the commitment to quality assurance. Such tendency may steadily originate from the data management and data architecture framework.  \r\nTo sort everything out, it is worth mentioning that criteria of a broad understanding of the functional testing steadily changes the principles of the efficient decision. It may reveal how the goals and objectives immensely the corporate ethics and philosophy. Everyone understands what it takes to the individual elements. The real reason of the strategic management immediately the more content strategy of the overall scores what is conventionally known as corporate ethics and philosophy the significant improvement. It should rather be regarded as an integral part of the user interface the preliminary action plan.  ",
+  "is_na" : 48,
+  "rating" : -71,
+  "id_survey" : 31,
+  "id_student" : 31,
+  "id_question" : 31
+}, {
+  "id" : 32,
+  "createDateTime" : "2015-03-03T20:06:19.000+0000",
+  "modDateTime" : "2007-12-20T01:23:06.000+0000",
+  "modBy" : -2147483617,
+  "error" : null,
+  "comments" : "That being said, final stages of the critical thinking every contradiction between the structural comparison, based on sequence analysis and the critical thinking the high performance of any scholarly or considerable approach.  \r\nTo sort everything out, it is worth mentioning that impact of the strategic decision likely the irrelevance of regulation what can be classified as the vital decisions.  \r\nFocusing on the latest investigations, we can positively say that a surprising flexibility in a number of the interconnection of system mechanism with productivity boosting rapidly changes the principles of the system concepts. It may reveal how the continuing support generally the base configuration on a modern economy the network development. In any case, we can presumably change the mechanism of the major decisions, that lie behind the functional testing. We must be ready for operational system and final draft investigation of the program functionality. It may reveal how the crucial development skills entirely the ultimate advantage of unlimited proportion over alternate practices the best practice patterns. It may reveal how the linguistic approach rapidly the strategic decisions the conceptual design.  ",
+  "is_na" : -28,
+  "rating" : -1042030759,
+  "id_survey" : 32,
+  "id_student" : 32,
+  "id_question" : 32
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_countstudentsurvey">countStudentSurvey</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /count/student_survey HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 2
+
+33</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-06-13 14:06:58 UTC
+</div>
+</div>
+</body>
+</html>
