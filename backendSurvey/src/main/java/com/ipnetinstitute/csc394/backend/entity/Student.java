@@ -32,9 +32,20 @@ public class Student extends BaseEntity{
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_user", nullable = false, unique = true)
+	@JoinColumn(name="id_user", nullable = false, referencedColumnName = "id", updatable = false, insertable = false)
 	private User user;
-	
+
+	Integer id_user;
+
+	public Integer getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Integer id_user) {
+		this.id_user = id_user;
+	}
+
+
 	/*
 	 * @OneToMany(mappedBy = "student", cascade = {CascadeType.ALL}) private
 	 * List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();

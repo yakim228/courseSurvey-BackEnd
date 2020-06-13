@@ -1,5 +1,7 @@
 package com.ipnetinstitute.csc394.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 // import lombok.AllArgsConstructor;
@@ -43,17 +45,28 @@ public class Role  {
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_user", nullable = false, unique = true)
+	@JoinColumn(name="id_user", nullable = false, referencedColumnName = "id", updatable = false, insertable = false)
 	private User user;
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-//	
+	Integer id_user;
+
+	public Integer getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Integer id_user) {
+		this.id_user = id_user;
+	}
+
+	@JsonBackReference
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 	// @ManyToOne(fetch = FetchType.LAZY)
 	// @JoinColumn(name = "id_user", nullable = false, unique = true)
