@@ -1,3 +1,4 @@
+
 :toc: left
 :toc-interactive: // the active section will be highlighted
 :toc-mode: offcanvas
@@ -32,41 +33,32 @@ use of HTTP verbs.
 Voici la liste des services qui s'executent sur le URL http://ec2-18-224-141-43.us-east-2.compute.amazonaws.com/services/:
 
 
-== SaveTerm
+== saveStudentSurvey
 .request
-include::{snippets}/saveTerm/http-request.adoc[]
-include::{snippets}/saveTerm/request-fields.adoc[]
+include::{snippets}/saveStudentSurvey/http-request.adoc[]
+include::{snippets}/saveStudentSurvey/request-fields.adoc[]
 
 .response
-include::{snippets}/saveTerm/http-response.adoc[]
+include::{snippets}/saveStudentSurvey/http-response.adoc[]
 
-== DeleteTerm
+== deleteStudentSurvey
 .request
-include::{snippets}/deleteTerm/http-request.adoc[]
+include::{snippets}/deleteStudentSurvey/http-request.adoc[]
+include::{snippets}/deleteStudentSurvey/request-fields.adoc[]
 
 .response
-include::{snippets}/deleteTerm/http-response.adoc[]
+include::{snippets}/deleteStudentSurvey/http-response.adoc[]
 
-
-== countTerm
+== getAllStudentSurveys
 .request
-include::{snippets}/countTerm/http-request.adoc[]
+include::{snippets}/getAllStudentSurveys/http-request.adoc[]
 
 .response
-include::{snippets}/countTerm/http-response.adoc[]
+include::{snippets}/getAllStudentSurveys/http-response.adoc[]
 
-
-== getAllTerm
+== countStudentSurvey
 .request
-include::{snippets}/getAllTerm/http-request.adoc[]
+include::{snippets}/countStudentSurvey/http-request.adoc[]
 
 .response
-include::{snippets}/getAllTerm/http-response.adoc[]
-
-
-== countTerm
-.request
-include::{snippets}/countTerm/http-request.adoc[]
-
-.response
-include::{snippets}/countTerm/http-response.adoc[]
+include::{snippets}/countStudentSurvey/http-response.adoc[]

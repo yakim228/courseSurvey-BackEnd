@@ -13,6 +13,7 @@ import com.ipnetinstitute.csc394.backend.entity.Classe;
 import com.ipnetinstitute.csc394.backend.entity.Course;
 import com.ipnetinstitute.csc394.backend.entity.Question;
 import com.ipnetinstitute.csc394.backend.entity.Student;
+import com.ipnetinstitute.csc394.backend.entity.StudentSurvey;
 import com.ipnetinstitute.csc394.backend.entity.Subject;
 import com.ipnetinstitute.csc394.backend.entity.Survey;
 import com.ipnetinstitute.csc394.backend.entity.Term;
@@ -929,6 +930,91 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
             System.out.println("countCourse is called"); try {
                 mockMvc.perform(get("/count/{entity}","course").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andDo(document("countCourse",
+                preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()))); 
+             } catch (Exception e) { e.printStackTrace(); throw (e); }
+         }
+         
+         
+           @Test
+	@Order(30)
+	public void saveStudentSurveyTest() throws JsonProcessingException, Exception {
+            System.out.println("saveStudentSurveyTest is called");
+               StudentSurvey s = new StudentSurvey();
+            s.setIs_na((short)5);
+            s.setComments("reponse");
+            s.setId_question(1);
+            s.setId_student(1);
+            s.setId_survey(1);
+            s.setRating(3);
+            s.setId(2);
+            s.setCreateDateTime(new Date());
+            s.setModDateTime(new Date());
+            s.setModBy(1);
+            String sJson = mapper.writeValueAsString(s);
+            System.out.println(sJson);
+		try {
+			mockMvc.perform(post("/save/{entity}", "student_survey").contentType(MediaType.APPLICATION_JSON).content(sJson))
+					.andExpect(status().isOk())
+					.andDo(document("saveStudentSurvey", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
+							requestFields(fieldWithPath("id").description("StudentSurvey id").ignored(),
+                                                                        fieldWithPath("id_question").description("id de la question").ignored(),
+                                                                        fieldWithPath("id_student").description("id de l'eleve").ignored(),
+                                                                        fieldWithPath("id_survey").description("id du survey").ignored(),
+                                                                        fieldWithPath("comments").description("commentaire").ignored(),
+                                                                        fieldWithPath("is_na").description("na").ignored(),
+                                                                        fieldWithPath("rating").description("id du rating").ignored(),
+                                                                        fieldWithPath("createDateTime").description("Date de creation").ignored(),
+									fieldWithPath("modDateTime").description("Date de modification").ignored(),
+									fieldWithPath("error").description("Utiliser pour le message d'erreur").ignored(),
+									fieldWithPath("modBy").description("Id de la personne connetee"),
+                                                                        fieldWithPath("type").description("type du Survey") 
+                                                        )));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		}
+         }
+        
+        @Autowired
+        private BaseEntityRepository<StudentSurvey> stdsRepo;
+        @Test
+	@Order(31)
+	public void deleteStudentSurveyTest() throws JsonProcessingException, Exception {
+		System.out.println("deleteStudentSurvey is called");
+                List<StudentSurvey> ss = stdsRepo.findAll();
+                StudentSurvey s = ss.get(ss.size()-1);
+		try {
+			mockMvc.perform(get("/delete/{entity}/{id}","student_survey",s.getId()).contentType(MediaType.APPLICATION_JSON)
+					).andExpect(status().isOk())
+					.andExpect(MockMvcResultMatchers.content().string("Success"))
+					.andDo(document("deleteStudentSurvey",
+							preprocessRequest(prettyPrint()), 
+							preprocessResponse(prettyPrint())
+                                                        ));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		}
+	}
+        
+     @Test 
+	 @Order(32)
+         public void getAllStudentSurveysTest() throws JsonProcessingException, Exception {
+            System.out.println("getAllStudentSurveyTest is called"); try {
+                mockMvc.perform(get("/getAll/{entity}","student_survey").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk()).andDo(document("getAllStudentSurveys",
+                preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()))); 
+             } catch (Exception e) { e.printStackTrace(); throw (e); }
+         }
+         
+         @Test 
+	 @Order(25)
+         public void countStudentSurveyTest() throws JsonProcessingException, Exception {
+            System.out.println("countStudentSurvey is called"); try {
+                mockMvc.perform(get("/count/{entity}","student_survey").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk()).andDo(document("countStudentSurvey",
                 preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()))); 
              } catch (Exception e) { e.printStackTrace(); throw (e); }
          }

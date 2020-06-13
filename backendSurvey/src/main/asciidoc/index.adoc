@@ -10,6 +10,7 @@
 * link:subject.html[Subject]
 * link:question.html[Question]
 * link:course.html[Course]
+* link:studentSurvey.html[studentSurvey]
 
 RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.
