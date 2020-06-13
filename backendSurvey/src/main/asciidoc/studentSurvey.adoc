@@ -44,7 +44,6 @@ include::{snippets}/saveStudentSurvey/http-response.adoc[]
 == deleteStudentSurvey
 .request
 include::{snippets}/deleteStudentSurvey/http-request.adoc[]
-include::{snippets}/deleteStudentSurvey/request-fields.adoc[]
 
 .response
 include::{snippets}/deleteStudentSurvey/http-response.adoc[]

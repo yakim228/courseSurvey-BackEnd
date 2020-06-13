@@ -956,16 +956,16 @@ class BackendSurveyApplicationTests extends SpringBootServletInitializer{
 			mockMvc.perform(post("/save/{entity}", "student_survey").contentType(MediaType.APPLICATION_JSON).content(sJson))
 					.andExpect(status().isOk())
 					.andDo(document("saveStudentSurvey", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()),
-							requestFields(fieldWithPath("id").description("StudentSurvey id").ignored(),
-                                                                        fieldWithPath("id_question").description("id de la question").ignored(),
-                                                                        fieldWithPath("id_student").description("id de l'eleve").ignored(),
-                                                                        fieldWithPath("id_survey").description("id du survey").ignored(),
-                                                                        fieldWithPath("comments").description("commentaire").ignored(),
+							requestFields(fieldWithPath("id").description("StudentSurvey id"),
+                                                                        fieldWithPath("id_question").description("id de la question"),
+                                                                        fieldWithPath("id_student").description("id de l'eleve"),
+                                                                        fieldWithPath("id_survey").description("id du survey"),
+                                                                        fieldWithPath("comments").description("commentaire"),
                                                                         fieldWithPath("is_na").description("na").ignored(),
-                                                                        fieldWithPath("rating").description("id du rating").ignored(),
-                                                                        fieldWithPath("createDateTime").description("Date de creation").ignored(),
-									fieldWithPath("modDateTime").description("Date de modification").ignored(),
-									fieldWithPath("error").description("Utiliser pour le message d'erreur").ignored(),
+                                                                        fieldWithPath("rating").description("id du rating"),
+                                                                        fieldWithPath("createDateTime").description("Date de creation"),
+									fieldWithPath("modDateTime").description("Date de modification"),
+									fieldWithPath("error").description("Utiliser pour le message d'erreur"),
 									fieldWithPath("modBy").description("Id de la personne connetee"),
                                                                         fieldWithPath("type").description("type du Survey") 
                                                         )));

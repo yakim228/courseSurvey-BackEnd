@@ -523,8 +523,8 @@ Host: localhost:8080
 {
   "type" : "student_survey",
   "id" : 2,
-  "createDateTime" : 1592059037601,
-  "modDateTime" : 1592059037601,
+  "createDateTime" : 1592064588526,
+  "modDateTime" : 1592064588526,
   "modBy" : 1,
   "error" : null,
   "comments" : "reponse",
@@ -551,6 +551,51 @@ Host: localhost:8080
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StudentSurvey id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id_question</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id de la question</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id_student</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id de l&#8217;eleve</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id_survey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id du survey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>comments</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">commentaire</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rating</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id du rating</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>createDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date de creation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date de modification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utiliser pour le message d&#8217;erreur</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>modBy</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Id de la personne connetee</p></td>
@@ -575,8 +620,8 @@ Content-Length: 309
 {
   "type" : "student_survey",
   "id" : 2,
-  "createDateTime" : "2020-06-13T14:37:17.601+0000",
-  "modDateTime" : "2020-06-13T14:37:17.606+0000",
+  "createDateTime" : "2020-06-13T16:09:48.526+0000",
+  "modDateTime" : "2020-06-13T16:09:48.537+0000",
   "modBy" : 1,
   "error" : null,
   "comments" : "reponse",
@@ -596,13 +641,10 @@ Content-Length: 309
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /delete/student_survey/32 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /delete/student_survey/30 HTTP/1.1
 Content-Type: application/json
 Host: localhost:8080</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Unresolved directive in studentSurvey.adoc - include::..\..\..\target\generated-snippets/deleteStudentSurvey/request-fields.adoc[]</p>
 </div>
 <div class="listingblock">
 <div class="title">response</div>
@@ -638,7 +680,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json
-Content-Length: 45278
+Content-Length: 41416
 
 [ {
   "id" : 1,
@@ -654,8 +696,8 @@ Content-Length: 45278
   "id_question" : 1
 }, {
   "id" : 2,
-  "createDateTime" : "2020-06-13T14:37:17.000+0000",
-  "modDateTime" : "2020-06-13T14:37:17.000+0000",
+  "createDateTime" : "2020-06-13T16:09:48.000+0000",
+  "modDateTime" : "2020-06-13T16:09:48.000+0000",
   "modBy" : 1,
   "error" : null,
   "comments" : "reponse",
@@ -988,30 +1030,6 @@ Content-Length: 45278
   "id_survey" : 29,
   "id_student" : 29,
   "id_question" : 29
-}, {
-  "id" : 30,
-  "createDateTime" : "1973-08-17T04:08:38.000+0000",
-  "modDateTime" : "2002-08-04T03:49:55.000+0000",
-  "modBy" : -2147483619,
-  "error" : null,
-  "comments" : "By all means, violations of the internal resources may share attitudes on the competitive development and manufacturing. This could concurrently be a result of a development process .  \r\nCuriously, core concept of the essential component poses problems and challenges for both the major decisions, that lie behind the structured technology analysis and any predictable behavior. This may be done through the production cycle.  \r\nTo sort everything out, it is worth mentioning that a section of the the profit leads us to a clear understanding of the basics of planning and scheduling. This could accordingly be a result of a set of related commands and controls.  ",
-  "is_na" : 18,
-  "rating" : -567437996,
-  "id_survey" : 30,
-  "id_student" : 30,
-  "id_question" : 30
-}, {
-  "id" : 31,
-  "createDateTime" : "1970-12-31T23:11:51.000+0000",
-  "modDateTime" : "1970-12-31T23:07:16.000+0000",
-  "modBy" : -2147483618,
-  "error" : null,
-  "comments" : "In short, the influence of the relation between the key factor and the technical requirements is regularly debated in the light of the entire picture.  \r\nTo be quite frank, with help of the mechanism may share attitudes on any development process . This may be done through the crucial development skills.  \r\nOn top of that the understanding of the great significance of the global management concepts can turn out to be a result of the feedback system. Such tendency may partially originate from the existing network.  \r\nOn the contrary, concentration of some part of the quality guidelines is getting more complicated against the backdrop of the preliminary action plan. So, can it be regarded as a common pattern? Hypothetically, the understanding of the great significance of the overall scores the overall scores. Therefore, the concept of the formal review of opportunities can be treated as the only solution the increasing growth of technology and productivity and the product design and development. Therefore, the concept of the design patterns can be treated as the only solution.  \r\nTherefore, a closer study of the preliminary network design complete failure of the supposed theory the risks of the diverse sources of information or the final phase.  \r\nThe majority of examinations of the mesmerizing impacts show that a number of the permanent growth can be regarded as ridiculously insignificant. The development methodology the critical thinking. The real reason of the matters of peculiar interest absolutely what is conventionally known as flexible production planning what can be classified as the resource management the ground-breaking technology and should set clear rules regarding the task analysis or the permanent growth.  \r\nLet's not forget that the organization of the basic feature may share attitudes on the commitment to quality assurance. Such tendency may steadily originate from the data management and data architecture framework.  \r\nTo sort everything out, it is worth mentioning that criteria of a broad understanding of the functional testing steadily changes the principles of the efficient decision. It may reveal how the goals and objectives immensely the corporate ethics and philosophy. Everyone understands what it takes to the individual elements. The real reason of the strategic management immediately the more content strategy of the overall scores what is conventionally known as corporate ethics and philosophy the significant improvement. It should rather be regarded as an integral part of the user interface the preliminary action plan.  ",
-  "is_na" : 48,
-  "rating" : -71,
-  "id_survey" : 31,
-  "id_student" : 31,
-  "id_question" : 31
 } ]</code></pre>
 </div>
 </div>
@@ -1038,7 +1056,7 @@ Vary: Access-Control-Request-Headers
 Content-Type: application/json
 Content-Length: 2
 
-32</code></pre>
+30</code></pre>
 </div>
 </div>
 </div>
@@ -1046,7 +1064,7 @@ Content-Length: 2
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-13 14:06:58 UTC
+Last updated 2020-06-13 16:08:26 UTC
 </div>
 </div>
 </body>
