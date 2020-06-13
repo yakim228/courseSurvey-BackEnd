@@ -119,7 +119,7 @@ public class Survey extends BaseEntity {
 		this.id_course = id_course;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "catsurvey")
        public CatSurvey getCatSurvey() {
 		return catSurvey;
 	}
@@ -128,7 +128,7 @@ public class Survey extends BaseEntity {
 		this.catSurvey = catSurvey;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "coursesurvey")
 	public Course getCourse() {
 		return course;
 	}
